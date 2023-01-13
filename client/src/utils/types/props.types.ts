@@ -5,7 +5,7 @@ export type PorpsUlS = {
 export type PropsTable = {
   widthP?: boolean;
   bg?: boolean;
-  display?: boolean;
+  displayP?: boolean;
 };
 
 export type PDivBtn = {

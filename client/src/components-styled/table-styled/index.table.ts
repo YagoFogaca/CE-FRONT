@@ -25,7 +25,7 @@ export const ThS = styled.th<PropsTable>`
   font-weight: 700;
   margin-bottom: 1.8rem;
   @media (max-width: 767px) {
-    display: ${props => (props.display ? 'none' : 'block')};
+    display: ${props => (props.displayP ? 'none' : 'block')};
   }
 `;
 
@@ -35,6 +35,6 @@ export const TdS = styled.td<PropsTable>`
   text-align: center;
 
   @media (max-width: 767px) {
-    display: ${props => (props.display ? 'none' : 'block')};
+    display: ${props => (props.displayP ? 'none' : 'block')};
   }
 `;

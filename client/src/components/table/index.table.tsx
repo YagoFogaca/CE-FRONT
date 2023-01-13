@@ -39,24 +39,24 @@ export function Table() {
   return (
     <C.TableS>
       <C.TrS>
-        <C.ThS widthP display>
+        <C.ThS widthP displayP>
           Cod
         </C.ThS>
         <C.ThS>Nome</C.ThS>
         <C.ThS>Qtde Esoque</C.ThS>
         <C.ThS>Unid</C.ThS>
-        <C.ThS display>Ativo</C.ThS>
+        <C.ThS displayP>Ativo</C.ThS>
       </C.TrS>
       {moocks.map((insumo, index) => {
         return (
-          <C.TrS bg={index % 2 === 0 ? true : false}>
-            <C.TdS widthP display>
+          <C.TrS bg={index % 2 === 0 ? true : false} key={index}>
+            <C.TdS widthP displayP>
               {insumo.id}
             </C.TdS>
             <C.TdS>{insumo.nome}</C.TdS>
             <C.TdS>{insumo.quant_estoque}</C.TdS>
             <C.TdS>{insumo.unidade.toUpperCase()}</C.TdS>
-            <C.TdS display>{insumo.ativo ? 'ATIVO' : 'OBSOLETO'}</C.TdS>
+            <C.TdS displayP>{insumo.ativo ? 'ATIVO' : 'OBSOLETO'}</C.TdS>
           </C.TrS>
         );
       })}
