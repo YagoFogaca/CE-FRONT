@@ -11,6 +11,12 @@ export const NavS = styled.nav`
   height: 12vh;
   padding: 0 6rem;
   box-sizing: border-box;
+
+  @media (max-width: 999px) {
+    & {
+      padding: 0 1.2rem;
+    }
+  }
 `;
 
 export const ImgS = styled.img`
