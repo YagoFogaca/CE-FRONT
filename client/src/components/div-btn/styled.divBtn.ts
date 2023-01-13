@@ -9,7 +9,6 @@ export const DivBtn = styled.div`
 export const Btn = styled.button<PropsBtn>`
   width: 20%;
   border: ${props => (props.borderP ? '4px solid #579bb1' : 'none')};
-  /* border: 4px solid #579bb1; */
   border-bottom: none !important;
   padding: 0.6rem;
   cursor: pointer;
