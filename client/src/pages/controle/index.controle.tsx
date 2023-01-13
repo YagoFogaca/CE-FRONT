@@ -13,7 +13,7 @@ export function ControlePage() {
 
   return (
     <Main>
-      <DivBtn setView={setView} />
+      <DivBtn view={view} setView={setView} />
       <C.Section>
         <C.DivSectionS>
           {view.saida ? (

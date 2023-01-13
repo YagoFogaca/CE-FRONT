@@ -14,4 +14,10 @@ export type PDivBtn = {
     saida: boolean;
     entrada: boolean;
   }) => void;
+
+  view: { estoque: boolean; saida: boolean; entrada: boolean };
+};
+
+export type PropsBtn = {
+  borderP?: boolean;
 };

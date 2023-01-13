@@ -1,10 +1,11 @@
 import { PDivBtn } from '../../utils/types/props.types';
 import * as C from './styled.divBtn';
 
-export function DivBtn({ setView }: PDivBtn) {
+export function DivBtn({ setView, view }: PDivBtn) {
   return (
     <C.DivBtn>
       <C.Btn
+        borderP={view.estoque ? true : false}
         onClick={() => {
           setView({
             estoque: true,
@@ -16,6 +17,7 @@ export function DivBtn({ setView }: PDivBtn) {
         Estoque
       </C.Btn>
       <C.Btn
+        borderP={view.saida ? true : false}
         onClick={() => {
           setView({
             estoque: false,
@@ -27,6 +29,7 @@ export function DivBtn({ setView }: PDivBtn) {
         Saidas
       </C.Btn>
       <C.Btn
+        borderP={view.entrada ? true : false}
         onClick={() => {
           setView({
             estoque: false,
