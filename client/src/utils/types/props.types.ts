@@ -2,9 +2,10 @@ export type PorpsUlS = {
   percentage?: number;
 };
 
-export type PropsTableW = {
-  width?: string;
-  display?: string;
+export type PropsTable = {
+  widthP?: boolean;
+  bg?: boolean;
+  display?: boolean;
 };
 
 export type PDivBtn = {
