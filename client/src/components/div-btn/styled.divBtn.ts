@@ -17,6 +17,6 @@ export const Btn = styled.button`
   text-transform: uppercase;
   @media (max-width: 768px) {
     width: 33.333333%;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
