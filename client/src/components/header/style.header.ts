@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-export const HeaderS = styled.header`
+export const NavS = styled.nav`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
-  padding: 1.2rem;
+  font-size: system-ui;
   background-color: #0d4c92;
+  height: 12vh;
+  padding: 0 6rem;
+  box-sizing: border-box;
 `;
 
 export const ImgS = styled.img`
@@ -15,68 +18,65 @@ export const ImgS = styled.img`
     width: 75px;
   }
 `;
+// ATENÇÃO A ESSA PROPRIEDADE *** PASSAR PARA UTILS
+type PorpsUlS = {
+  percentage?: number;
+};
 
-export const NavS = styled.nav`
-  width: 45%;
+export const UlS = styled.ul<PorpsUlS>`
+  list-style: none;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+
+  li {
+    letter-spacing: 3px;
+    margin-left: 3.2rem;
+  }
+
+  @media (max-width: 999px) {
+    & {
+      position: absolute;
+      top: 12vh;
+      right: 0;
+      width: 50vw;
+      height: 88vh;
+      background-color: #0d4c92;
+
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+
+      transform: translateX(${props => props.percentage || 0}%);
+      transition: transform 0.3s ease-in;
+    }
+    li {
+      margin-left: 0px;
+    }
+  }
 `;
 
-export const UlDesktopS = styled.ul`
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  @media (max-width: 935px) {
-    display: none;
-  }
-
-  .nav-li {
-    font-size: 2.6rem;
-    list-style: none;
-  }
-
-  .nav-li a {
-    color: #fefefe;
-    text-decoration: none;
+export const ALinkS = styled.a`
+  color: #fefefe;
+  font-size: 2.1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
-export const MenuMobile = styled.button`
+export const DivMenuMobile = styled.div`
   display: none;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-
-  background-color: transparent;
-  border: none;
-
-  @media (min-width: 230px) and (max-width: 935px) {
-    display: flex;
-  }
-
+  cursor: pointer;
   div {
-    width: 40px;
+    width: 3.2rem;
     height: 2px;
     background-color: #fefefe;
-  }
-`;
-
-export const UlMobileS = styled.ul`
-  width: 100%;
-  display: none;
-  justify-content: space-evenly;
-  @media (min-width: 935px) {
-    display: flex;
+    margin: 8px;
   }
 
-  .nav-li {
-    font-size: 2.6rem;
-    list-style: none;
-  }
-
-  .nav-li a {
-    color: #fefefe;
-    text-decoration: none;
+  @media (max-width: 999px) {
+    & {
+      display: block;
+    }
   }
 `;
