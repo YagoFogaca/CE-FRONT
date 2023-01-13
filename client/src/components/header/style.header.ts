@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PorpsUlS } from '../../utils/types/props.types';
 
 export const NavS = styled.nav`
   display: flex;
@@ -18,10 +19,6 @@ export const ImgS = styled.img`
     width: 75px;
   }
 `;
-// ATENÇÃO A ESSA PROPRIEDADE *** PASSAR PARA UTILS
-type PorpsUlS = {
-  percentage?: number;
-};
 
 export const UlS = styled.ul<PorpsUlS>`
   list-style: none;
@@ -34,7 +31,7 @@ export const UlS = styled.ul<PorpsUlS>`
 
   @media (max-width: 999px) {
     & {
-      position: absolute;
+      position: fixed;
       top: 12vh;
       right: 0;
       width: 50vw;
