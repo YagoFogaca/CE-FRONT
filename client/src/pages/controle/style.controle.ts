@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   width: 90%;
-  // Apos ter conteudo remover esse propriedade
   height: 100%;
   background-color: #f8f4ea;
   margin: 0rem auto;
@@ -14,21 +13,9 @@ export const Section = styled.section`
   gap: 2rem;
 `;
 
-export const DivBtn = styled.div`
-  width: 90%;
+export const DivSectionS = styled.div`
+  width: 95%;
   margin: 0 auto;
-`;
-
-export const Btn = styled.button`
-  width: 20%;
-  border: 4px solid #579bb1;
-  border-bottom: none !important;
-
-  font-size: 1.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  @media (max-width: 768px) {
-    width: 33.333333%;
-    font-size: 1.5rem;
-  }
+  padding: 1rem;
+  box-sizing: border-box;
 `;
