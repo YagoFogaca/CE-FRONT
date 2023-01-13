@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 10px;
 
-    color: rgba(255, 255, 255, 0.87);
     background-color: #ddddddf3;
   }
 
