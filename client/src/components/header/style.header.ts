@@ -50,7 +50,7 @@ export const UlS = styled.ul<PorpsUlS>`
 
       // 0 === abre
       // 100 === fecha
-      transform: translateX(${props => (props.percentage ? 0 : 100)}%);
+      transform: translateX(${props => props.percentage}%);
       transition: transform 0.3s ease-in;
     }
     li {

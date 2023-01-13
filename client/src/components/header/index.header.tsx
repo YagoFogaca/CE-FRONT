@@ -12,7 +12,7 @@ export function Header() {
           onClick={() => {
             if (isOpenMenu === 100) {
               setIsOpenMenu(0);
-            } else {
+            } else if (isOpenMenu === 0) {
               setIsOpenMenu(100);
             }
           }}
