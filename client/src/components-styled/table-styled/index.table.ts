@@ -4,6 +4,9 @@ import { PropsTable } from '../../utils/types/props.types';
 export const TableS = styled.table`
   width: 100%;
   font-size: 1.9rem;
+  border-top: 3px solid #cbcbcb;
+  border-bottom: 3px solid #cbcbcb;
+  border-radius: 1%;
 `;
 
 export const TrS = styled.tr<PropsTable>`
