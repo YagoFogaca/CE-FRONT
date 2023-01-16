@@ -21,3 +21,7 @@ export type PDivBtn = {
 export type PropsBtn = {
   borderP?: boolean;
 };
+
+export type PropsSectionTable = {
+  setFilter: (value: string) => void;
+};
