@@ -8,6 +8,7 @@ export const BtnS = styled.button`
   padding: 0.3rem 0.5rem;
   background-color: #5485bb;
   border: 2px solid #0f0f0f;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -16,7 +17,6 @@ export const BtnS = styled.button`
   transition: 0.3s;
   @media (max-width: 425px) {
     font-size: 1.4rem;
-    width: 30%;
   }
 
   &:hover {
