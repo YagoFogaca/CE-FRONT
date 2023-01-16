@@ -29,6 +29,7 @@ export const ImgS = styled.img`
 export const UlS = styled.ul<PorpsUlS>`
   list-style: none;
   display: flex;
+  z-index: 10;
 
   li {
     letter-spacing: 3px;
@@ -50,7 +51,7 @@ export const UlS = styled.ul<PorpsUlS>`
 
       // 0 === abre
       // 100 === fecha
-      transform: translateX(${props => props.percentage}%);
+      transform: translateX(${props => (props.percentage ? 0 : 100)}%);
       transition: transform 0.3s ease-in;
     }
     li {

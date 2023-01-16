@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as C from './style.header';
 
 export function Header() {
-  const [isOpenMenu, setIsOpenMenu] = useState<number>(100);
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
   return (
     <header>
@@ -10,11 +10,7 @@ export function Header() {
         <C.ImgS src="/logo.png" alt="logo" />
         <C.DivMenuMobile
           onClick={() => {
-            if (isOpenMenu === 100) {
-              setIsOpenMenu(0);
-            } else if (isOpenMenu === 0) {
-              setIsOpenMenu(100);
-            }
+            setIsOpenMenu(!isOpenMenu);
           }}
         >
           <div className="line1"></div>
