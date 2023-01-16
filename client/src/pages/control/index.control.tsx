@@ -1,10 +1,10 @@
-import * as C from './style.controle';
+import * as C from './style.control';
 import { Main } from '../../components-styled/main/index.main';
 import { useState } from 'react';
 import { DivBtn } from '../../components/div-btn/index.divBtn';
-import { Table } from '../../components/table-estoque/index.table';
+import { TablesStock } from '../../components/table-stock/index.table';
 
-export function ControlePage() {
+export function ControlPage() {
   const [view, setView] = useState({
     estoque: true,
     saida: false,
@@ -21,7 +21,7 @@ export function ControlePage() {
           ) : view.entrada ? (
             <h1>Entradas</h1>
           ) : (
-            <Table />
+            <TablesStock />
           )}
         </C.DivSectionS>
       </C.Section>

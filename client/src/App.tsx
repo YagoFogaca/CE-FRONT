@@ -1,11 +1,11 @@
 import { Header } from './components/header/index.header';
-import { ControlePage } from './pages/controle/index.controle';
+import { ControlPage } from './pages/control/index.control';
 
 function App() {
   return (
     <>
       <Header />
-      <ControlePage />
+      <ControlPage />
     </>
   );
 }
