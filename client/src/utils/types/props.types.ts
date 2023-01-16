@@ -1,5 +1,5 @@
 export type PorpsUlS = {
-  percentage?: number;
+  percentage: boolean;
 };
 
 export type PropsTable = {
