@@ -49,8 +49,6 @@ export const UlS = styled.ul<PorpsUlS>`
       align-items: center;
       gap: 3rem;
 
-      // 0 === abre
-      // 100 === fecha
       transform: translateX(${props => (props.percentage ? 0 : 100)}%);
       transition: transform 0.3s ease-in;
     }
