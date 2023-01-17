@@ -8,13 +8,18 @@ export const NavS = styled.nav`
 
   font-size: system-ui;
   background-color: #0d4c92;
-  height: 12vh;
-  padding: 0 6rem;
-  box-sizing: border-box;
+  height: 100px;
+  padding: 1rem 6rem;
+  box-sizing: content-box;
 
   @media (max-width: 999px) {
     & {
-      padding: 0 1.2rem;
+      padding: 1rem 4rem;
+    }
+  }
+  @media (max-width: 699px) {
+    & {
+      padding: 1rem 1.2rem;
     }
   }
 `;
@@ -39,10 +44,10 @@ export const UlS = styled.ul<PorpsUlS>`
   @media (max-width: 999px) {
     & {
       position: fixed;
-      top: 12vh;
+      top: 0;
       right: 0;
       width: 50vw;
-      height: 88vh;
+      height: 100%;
       background-color: #0d4c92;
 
       flex-direction: column;
