@@ -5,10 +5,11 @@ export function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
   return (
-    <header>
-      <C.NavS>
+    <C.HeaderS open={isOpenMenu}>
+      <C.NavS open={isOpenMenu}>
         <C.ImgS src="/logo.png" alt="logo" />
         <C.DivMenuMobile
+          open={isOpenMenu}
           onClick={() => {
             setIsOpenMenu(!isOpenMenu);
           }}
@@ -17,7 +18,7 @@ export function Header() {
           <div className="line2"></div>
           <div className="line3"></div>
         </C.DivMenuMobile>
-        <C.UlS percentage={isOpenMenu}>
+        <C.UlS open={isOpenMenu}>
           <li className="nav-li">
             <C.ALinkS href="">Home</C.ALinkS>
           </li>
@@ -29,6 +30,6 @@ export function Header() {
           </li>
         </C.UlS>
       </C.NavS>
-    </header>
+    </C.HeaderS>
   );
 }

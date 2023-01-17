@@ -1,14 +1,21 @@
 import styled from 'styled-components';
-import { PorpsUlS } from '../../utils/types/props.types';
+import { PorpsMenuMobile } from '../../utils/types/props.types';
 
-export const NavS = styled.nav`
+export const HeaderS = styled.header<PorpsMenuMobile>`
+  /* min-height: 120px; */
+  height: ${props => (props.open ? '35%' : '120px')};
+  transition: height 0.3s ease-in;
+`;
+
+export const NavS = styled.nav<PorpsMenuMobile>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   font-size: system-ui;
   background-color: #0d4c92;
-  height: 100px;
+  height: ${props => (props.open ? '100%' : '100px')};
   padding: 1rem 6rem;
   box-sizing: content-box;
 
@@ -31,7 +38,7 @@ export const ImgS = styled.img`
   }
 `;
 
-export const UlS = styled.ul<PorpsUlS>`
+export const UlS = styled.ul<PorpsMenuMobile>`
   list-style: none;
   display: flex;
   z-index: 10;
@@ -43,19 +50,11 @@ export const UlS = styled.ul<PorpsUlS>`
 
   @media (max-width: 999px) {
     & {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 50vw;
-      height: 100%;
-      background-color: #0d4c92;
-
+      display: ${props => (props.open ? 'flex' : 'none')};
+      height: 50%;
       flex-direction: column;
       align-items: center;
       gap: 3rem;
-
-      transform: translateX(${props => (props.percentage ? 0 : 100)}%);
-      transition: transform 0.3s ease-in;
     }
     li {
       margin-left: 0px;
@@ -73,7 +72,7 @@ export const ALinkS = styled.a`
   }
 `;
 
-export const DivMenuMobile = styled.div`
+export const DivMenuMobile = styled.div<PorpsMenuMobile>`
   display: none;
   cursor: pointer;
   div {
@@ -86,6 +85,9 @@ export const DivMenuMobile = styled.div`
   @media (max-width: 999px) {
     & {
       display: block;
+      position: ${props => (props.open ? 'absolute' : 'unset')};
+      right: 5px;
+      top: 5px;
     }
   }
 `;

@@ -1,5 +1,5 @@
-export type PorpsUlS = {
-  percentage: boolean;
+export type PorpsMenuMobile = {
+  open: boolean;
 };
 
 export type PropsTable = {
