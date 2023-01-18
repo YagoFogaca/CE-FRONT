@@ -1,10 +1,7 @@
 import { CloseButton } from 'react-bootstrap';
+import { AiOutlineClose } from 'react-icons/ai';
 import ReactModal from 'react-modal';
 import { PropsReactModalC } from '../../utils/types/props.types';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import { FormCreateSupply } from '../forms/index.createSupply';
 
 ReactModal.setAppElement('#root');
@@ -12,7 +9,6 @@ ReactModal.setAppElement('#root');
 const customStyles = {
   content: {
     width: '85%',
-    height: '80%',
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -39,10 +35,12 @@ export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
           justifyContent: 'flex-end',
         }}
       >
-        <CloseButton
+        <AiOutlineClose
           onClick={closeModal}
           style={{
-            fontSize: '2.5rem',
+            fontSize: '3.5rem',
+            color: '#ff1818',
+            cursor: 'pointer',
           }}
         />
       </div>
