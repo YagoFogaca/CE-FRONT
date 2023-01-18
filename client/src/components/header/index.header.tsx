@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export function Header() {
+  const userAdmin = localStorage.getItem('role');
   return (
     <C.HeadersBootstrap>
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -19,9 +20,14 @@ export function Header() {
               <Nav.Link href="#pricing">Controle</Nav.Link>
               <NavDropdown title="Usuarios" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Ver todos usuarios
-                </NavDropdown.Item>
+                {userAdmin ? (
+                  <NavDropdown.Item href="#action/3.2">
+                    Ver todos usuarios
+                  </NavDropdown.Item>
+                ) : (
+                  <></>
+                )}
+
                 <NavDropdown.Item href="#action/3.3">
                   Editar perfil
                 </NavDropdown.Item>
