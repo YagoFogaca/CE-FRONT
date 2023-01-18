@@ -21,3 +21,8 @@ export type PropsBtn = {
 export type PropsSectionTable = {
   setFilter: (value: string) => void;
 };
+
+export type PropsReactModalC = {
+  modalIsOpen: boolean;
+  closeModal: () => void;
+};
