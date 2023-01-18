@@ -1,7 +1,11 @@
-import { useState } from 'react';
 import { CloseButton } from 'react-bootstrap';
 import ReactModal from 'react-modal';
 import { PropsReactModalC } from '../../utils/types/props.types';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import { FormCreateSupply } from '../forms/index.createSupply';
 
 ReactModal.setAppElement('#root');
 
@@ -29,15 +33,20 @@ export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
     >
-      <CloseButton
-        onClick={closeModal}
+      <div
         style={{
-          fontSize: '2.5rem',
-          position: 'fixed',
-          top: '3rem',
-          right: '4rem',
+          display: 'flex',
+          justifyContent: 'flex-end',
         }}
-      />
+      >
+        <CloseButton
+          onClick={closeModal}
+          style={{
+            fontSize: '2.5rem',
+          }}
+        />
+      </div>
+      <FormCreateSupply />
     </ReactModal>
   );
 }
