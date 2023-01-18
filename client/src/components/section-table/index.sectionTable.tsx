@@ -1,7 +1,6 @@
 import * as C from './style.sectionTable';
-import { GrFormAdd, GrSearch } from 'react-icons/gr';
+import { GrFormAdd } from 'react-icons/gr';
 import { PropsSectionTable } from '../../utils/types/props.types';
-import { BtnS } from '../../components-styled/btn/index.btn';
 
 export function SectionTable({ setFilter }: PropsSectionTable) {
   function filter(event: React.FormEvent<HTMLFormElement>) {
@@ -11,11 +10,13 @@ export function SectionTable({ setFilter }: PropsSectionTable) {
 
   return (
     <C.SectionTableS>
-      <C.FormSectionTableS onSubmit={filter}>
-        <C.InputSectionTableS type="text" name="search" id="search" />
-        <BtnS>
-          Buscar <GrSearch />
-        </BtnS>
+      <C.FormSectionTableS onChange={filter}>
+        <C.InputSectionTableS
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Busque aqui..."
+        />
       </C.FormSectionTableS>
       <C.BtnSectionTableS>
         <GrFormAdd />
