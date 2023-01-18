@@ -1,50 +1,28 @@
 import { useEffect, useState } from 'react';
 import * as C from '../../components-styled/table-styled/index.table';
+import { api } from '../../utils/api/api';
+import { ISupplies } from '../../utils/interfaces/useState.interface';
 import { SectionTable } from '../section-table/index.sectionTable';
 
 export function TablesStock() {
   const [filter, setFilter] = useState<string>('');
-  const moocks = [
-    {
-      id: '92f248a4-26a4-4e86-84a4-384528c65ee1',
-      id_user: '6595fdc6-c1b1-4e17-b30b-4297cd808b23',
-      nome: "DISCO DE DESBATE 4'",
-      quant_estoque: 0,
-      unidade: 'pç',
-      ativo: true,
-    },
-    {
-      id: '92f248a4-26a4-4e86-84a4-384528c65ee1',
-      id_user: '6595fdc6-c1b1-4e17-b30b-4297cd808b23',
-      nome: "DISCO DE DESBATE 7'",
-      quant_estoque: 0,
-      unidade: 'pç',
-      ativo: true,
-    },
-    {
-      id: '92f248a4-26a4-4e86-84a4-384528c65ee1',
-      id_user: '6595fdc6-c1b1-4e17-b30b-4297cd808b23',
-      nome: "DISCO DE CORTE 7'",
-      quant_estoque: 0,
-      unidade: 'pç',
-      ativo: true,
-    },
-    {
-      id: '92f248a4-26a4-4e86-84a4-384528c65ee1',
-      id_user: '6595fdc6-c1b1-4e17-b30b-4297cd808b23',
-      nome: "DISCO DE CORTE 4'",
-      quant_estoque: 0,
-      unidade: 'pç',
-      ativo: true,
-    },
-  ];
+  const [supplies, setSupplies] = useState<ISupplies[]>([]);
+
+  const findAllSupplies = async () => {
+    const findSupplies = await api.findAllSpply();
+    setSupplies(findSupplies);
+  };
 
   const filterInsumos =
     filter.length > 0
-      ? moocks.filter(insumo => {
+      ? supplies.filter(insumo => {
           return insumo.nome.toLowerCase().includes(filter.toLowerCase());
         })
-      : moocks;
+      : supplies;
+
+  useEffect(() => {
+    findAllSupplies();
+  }, []);
 
   return (
     <>
