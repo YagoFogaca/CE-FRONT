@@ -1,7 +1,3 @@
-export type PorpsMenuMobile = {
-  open: boolean;
-};
-
 export type PropsTable = {
   widthP?: boolean;
   bg?: boolean;
