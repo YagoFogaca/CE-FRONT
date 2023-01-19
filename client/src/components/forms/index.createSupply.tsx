@@ -1,3 +1,4 @@
+import { api } from '../../utils/api/api';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -5,20 +6,20 @@ import Col from 'react-bootstrap/Col';
 import './style.forms.css';
 
 export function FormCreateSupply() {
-  return (
-    <Form
-      onSubmit={e => {
-        e.preventDefault();
+  const createSupply = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const supply = {
+      id_user: 'ccf261d4-72c2-4ed9-baaf-267c9e2c5d15',
+      nome: event.currentTarget.nome.value,
+      quant_estoque: +event.currentTarget.quant_estoque.value,
+      unidade: event.currentTarget.unidade.value,
+      ativo: event.currentTarget.ativo.value === 'Ativo' ? true : false,
+    };
+    const supplyCreate = await api.createSupply(supply);
+  };
 
-        const supply = {
-          nome: e.currentTarget.nome.value,
-          quant_estoque: e.currentTarget.quant_estoque.value,
-          unidade: e.currentTarget.unidade.value,
-          ativo: e.currentTarget.ativo.value,
-        };
-        console.log(supply);
-      }}
-    >
+  return (
+    <Form onSubmit={createSupply}>
       <Col className="mb-3">
         <Form.Group as={Col} controlId="nome">
           <Form.Label>Nome</Form.Label>
@@ -27,15 +28,15 @@ export function FormCreateSupply() {
 
         <Form.Group as={Col} controlId="quant_estoque">
           <Form.Label>Quantidade em estoque</Form.Label>
-          <Form.Control type="number" placeholder="0" />
+          <Form.Control defaultValue={0} type="number" placeholder="0" />
         </Form.Group>
         <Form.Group as={Col} controlId="unidade">
           <Form.Label>Unidade</Form.Label>
           <Form.Select defaultValue="Choose...">
-            <option>Metros - M </option>
-            <option>Lata - LT</option>
-            <option>Caixa - CX</option>
-            <option>Peça - PÇ</option>
+            <option value="m">Metros - M </option>
+            <option value="lt">Lata - LT</option>
+            <option value="cx">Caixa - CX</option>
+            <option value="pç">Peça - PÇ</option>
           </Form.Select>
         </Form.Group>
         <Form.Group as={Col} controlId="ativo">
