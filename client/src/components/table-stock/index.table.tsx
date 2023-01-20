@@ -37,7 +37,7 @@ export function TablesStock() {
           <C.ThS>Unid</C.ThS>
           <C.ThS displayP>Ativo</C.ThS>
         </C.TrS>
-        {/* {filterInsumos.map((insumo, index) => {
+        {filterInsumos.map((insumo, index) => {
           return (
             <C.TrS bg={index % 2 === 0 ? true : false} key={index}>
               <C.TdS widthP displayP>
@@ -49,7 +49,7 @@ export function TablesStock() {
               <C.TdS displayP>{insumo.ativo ? 'ATIVO' : 'OBSOLETO'}</C.TdS>
             </C.TrS>
           );
-        })} */}
+        })}
       </C.TableS>
     </>
   );
