@@ -1,12 +1,14 @@
-import { Header } from './components/header/index.header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ControlPage } from './pages/control/index.control';
 
 function App() {
   return (
-    <>
-      <Header />
-      <ControlPage />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<h1>Login</h1>} />
+        <Route path="/controle-estoque" element={<ControlPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
