@@ -7,5 +7,5 @@ export interface ISupplies {
 }
 
 export interface ICreateSupplies extends ISupplies {
-  id_user: string;
+  id_user: string | null;
 }

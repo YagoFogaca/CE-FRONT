@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../utils/api/api';
 import { SectionFormLoginS } from './style.login';
 
 export function LoginPage() {
+  const navigate = useNavigate();
   const login = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const user = {
@@ -11,6 +13,8 @@ export function LoginPage() {
       senha: event.currentTarget.senha.value,
     };
     const loginUser = await api.login(user);
+    localStorage.setItem('id_user', loginUser.user.id);
+    navigate('/controle-estoque');
   };
 
   return (

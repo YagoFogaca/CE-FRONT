@@ -9,13 +9,13 @@ export function FormCreateSupply() {
   const createSupply = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const supply = {
-      id_user: 'ccf261d4-72c2-4ed9-baaf-267c9e2c5d15',
+      id_user: localStorage.getItem('id_user'),
       nome: event.currentTarget.nome.value,
       quant_estoque: +event.currentTarget.quant_estoque.value,
       unidade: event.currentTarget.unidade.value,
       ativo: event.currentTarget.ativo.value === 'Ativo' ? true : false,
     };
-    const supplyCreate = await api.createSupply(supply);
+    await api.createSupply(supply);
   };
 
   return (
