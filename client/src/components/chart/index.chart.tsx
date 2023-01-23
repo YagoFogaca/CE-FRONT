@@ -24,7 +24,7 @@ export function Chart({
       colors: colors,
       dataLabels: {
         enabled: true,
-        offsetX: -10,
+        offsetX: 3,
         style: {
           fontSize: '12px',
           colors: ['#fff'],
