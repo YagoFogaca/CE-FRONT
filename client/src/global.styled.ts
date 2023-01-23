@@ -4,8 +4,6 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 10px;
-
-    background-color: #ddddddf3;
   }
 
   * {
@@ -21,5 +19,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     overflow-x: hidden;
     height: 100%;
+    background-color: #ebebeb;
   }
 `;
