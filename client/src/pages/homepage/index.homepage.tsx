@@ -1,4 +1,5 @@
 import { Chart } from '../../components/chart/index.chart';
+import { DivInfos } from '../../components/div-infos-homepage/index.divInfosHomepage';
 import { Header } from '../../components/header/index.header';
 import * as C from './style.homege';
 
@@ -32,6 +33,7 @@ export function Homepage() {
     <>
       <Header />
       <C.SectionHomepageS>
+        <DivInfos />
         <Chart
           id={'entradas-insumo'}
           colors={['#177958']}
