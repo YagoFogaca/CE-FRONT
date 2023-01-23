@@ -26,3 +26,12 @@ export type PropsReactModalC = {
   modalIsOpen: boolean;
   closeModal: () => void;
 };
+
+export type PropsChart = {
+  id: string;
+  colors: string[];
+  categories: string[];
+  text: string;
+  name: string;
+  data: number[];
+};
