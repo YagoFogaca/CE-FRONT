@@ -14,7 +14,7 @@ export function LoginPage() {
     };
     const loginUser = await api.login(user);
     localStorage.setItem('id_user', loginUser.user.id);
-    navigate('/controle-estoque');
+    navigate('/homepage');
   };
 
   return (
