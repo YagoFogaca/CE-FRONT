@@ -1,9 +1,8 @@
 import axios from 'axios';
-import { redirect } from 'react-router-dom';
 import { ILogin } from '../interfaces/login.interface';
 import { ICreateSupplies } from '../interfaces/useState.interface';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://ce-api-production.up.railway.app';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 axios.interceptors.request.use(
