@@ -36,4 +36,14 @@ export const api = {
       console.log(error);
     }
   },
+
+  deleteSupply: async (id?: string) => {
+    try {
+      return await (
+        await axios.delete('/supplies/delete/' + id)
+      ).data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
