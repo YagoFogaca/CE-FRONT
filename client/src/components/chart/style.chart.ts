@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionGraficos = styled.section`
-  width: 90%;
-  height: 90%;
+  width: 60%;
   padding: 1rem;
 
   .row {
@@ -17,7 +16,7 @@ export const SectionGraficos = styled.section`
     display: flex;
     justify-content: center;
     tspan {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
 `;

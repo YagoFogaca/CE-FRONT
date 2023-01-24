@@ -23,12 +23,7 @@ export function Chart({
       },
       colors: colors,
       dataLabels: {
-        enabled: true,
-        offsetX: 3,
-        style: {
-          fontSize: '12px',
-          colors: ['#fff'],
-        },
+        enabled: false,
       },
       xaxis: {
         categories: categories,
@@ -59,7 +54,7 @@ export function Chart({
               series={configChart.series}
               options={configChart.options}
               width="90%"
-              height="550px"
+              height="auto"
               type="bar"
             />
           </div>
