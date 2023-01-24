@@ -5,37 +5,6 @@ import { ICreateSupplies } from '../interfaces/useState.interface';
 axios.defaults.baseURL = 'https://ce-api-production.up.railway.app';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-axios.interceptors.request.use(
-  function (config) {
-    const token = localStorage.getItem('token');
-    console.log(config);
-    if (token) {
-      config.headers.Authorization = 'Bearer ' + token;
-    }
-
-    return config;
-  },
-  function (error) {
-    return Promise.reject(error);
-  },
-);
-
-axios.interceptors.response.use(
-  response => {
-    return response;
-  },
-  error => {
-    const status = error.response.status;
-    if (status === 401) {
-      if (localStorage.getItem('token')) {
-        localStorage.removeItem('token');
-      }
-      // window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  },
-);
-
 export const api = {
   login: async (user: ILogin) => {
     try {

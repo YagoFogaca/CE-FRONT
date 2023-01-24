@@ -7,7 +7,6 @@ export function Auth() {
   axios.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem('token');
-      console.log(config);
       if (token) {
         config.headers.Authorization = 'Bearer ' + token;
       }
