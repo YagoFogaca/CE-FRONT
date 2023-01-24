@@ -1,4 +1,3 @@
-import { CloseButton } from 'react-bootstrap';
 import { AiOutlineClose } from 'react-icons/ai';
 import ReactModal from 'react-modal';
 import { PropsReactModalC } from '../../utils/types/props.types';
