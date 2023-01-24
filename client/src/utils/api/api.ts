@@ -8,6 +8,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem('token');
+    console.log(config);
     if (token) {
       config.headers.Authorization = 'Bearer ' + token;
     }
@@ -29,7 +30,7 @@ axios.interceptors.response.use(
       if (localStorage.getItem('token')) {
         localStorage.removeItem('token');
       }
-      window.location.href = '/login';
+      // window.location.href = '/login';
     }
     return Promise.reject(error);
   },
