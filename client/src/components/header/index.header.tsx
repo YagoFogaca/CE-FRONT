@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   const userAdmin = localStorage.getItem('role');
@@ -16,23 +17,35 @@ export function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="flex-end">
-              <Nav.Link href="#features">Home</Nav.Link>
-              <Nav.Link href="#pricing">Controle</Nav.Link>
+              <Link className="nav-link" to="/homepage">
+                Home
+              </Link>
+              <Link className="nav-link" to="/controle-estoque">
+                Controle
+              </Link>
               <NavDropdown title="Usuarios" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
                 {userAdmin ? (
-                  <NavDropdown.Item href="#action/3.2">
-                    Ver todos usuarios
+                  <NavDropdown.Item>
+                    <Link className="dropdown-item" to="#">
+                      Ver todos usuarios
+                    </Link>
                   </NavDropdown.Item>
                 ) : (
                   <></>
                 )}
 
-                <NavDropdown.Item href="#action/3.3">
-                  Editar perfil
+                <NavDropdown.Item>
+                  <Link className="dropdown-item" to="#">
+                    Editar perfil
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Sair</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="dropdown-item" to="#">
+                    Sair
+                  </Link>
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
