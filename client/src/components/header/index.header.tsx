@@ -9,7 +9,7 @@ export function Header() {
   const userAdmin = localStorage.getItem('role');
   return (
     <C.HeadersBootstrap>
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Navbar collapseOnSelect expand="xxl" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <C.ImgS src="/logo.png" alt="logo" />
