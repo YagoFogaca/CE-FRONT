@@ -1,6 +1,7 @@
 import { Chart } from '../../components/chart/index.chart';
 import { DivInfos } from '../../components/div-infos-homepage/index.divInfosHomepage';
 import { Header } from '../../components/header/index.header';
+import { SectionInfos } from '../../components/section-infos-homepage/index.SectionHomepage';
 import * as C from './style.homege';
 
 export function Homepage() {
@@ -34,14 +35,15 @@ export function Homepage() {
       <Header />
       <C.SectionHomepageS>
         <DivInfos />
-        <Chart
+        <SectionInfos />
+        {/* <Chart
           id={'entradas-insumo'}
           colors={['#177958']}
           categories={categories}
           text={'Entradas de insumos'}
           name={'Qtde de Entrada'}
           data={data}
-        />
+        /> */}
       </C.SectionHomepageS>
     </>
   );

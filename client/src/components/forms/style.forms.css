@@ -17,3 +17,24 @@ button.btn {
 .mb-3 {
   gap: 2rem;
 }
+
+div.marginFormat {
+  margin-bottom: 0rem !important;
+}
+
+.formSection {
+  width: 25%;
+  min-width: 220px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #f5f5f55e;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px #000;
+  padding: 20px;
+}
+
+.labelSection {
+  font-size: 16px;
+}
