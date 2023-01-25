@@ -38,14 +38,10 @@ export function SectionInfos({ supplies }: PropsSuppliesEntrys) {
               {suppliesFilter.map((insumo, index) => {
                 return (
                   <T.TrS bg={index % 2 === 0 ? true : false} key={index}>
-                    <T.TdS widthP displayP>
-                      {insumo.id}
-                    </T.TdS>
                     <T.TdS>{insumo.nome}</T.TdS>
                     <T.TdS>{insumo.quant_estoque}</T.TdS>
-                    <T.TdS>{insumo.unidade.toUpperCase()}</T.TdS>
-                    <T.TdS displayP>
-                      {insumo.ativo ? 'ATIVO' : 'OBSOLETO'}
+                    <T.TdS>
+                      {insumo.entrySupply[index].data.split('T')[0]}
                     </T.TdS>
                   </T.TrS>
                 );
