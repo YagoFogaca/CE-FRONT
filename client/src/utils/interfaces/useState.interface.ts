@@ -9,3 +9,20 @@ export interface ISupplies {
 export interface ICreateSupplies extends ISupplies {
   id_user: string | null;
 }
+
+export interface IEntrySupply {
+  data: string;
+  id: string;
+  id_supply: string;
+  id_user: string;
+  quant: number;
+}
+
+export interface ISuppliesEntrys extends ISupplies {
+  entrySupply: IEntrySupply[];
+  exitSupply: [];
+}
+
+export type PropsSuppliesEntrys = {
+  supplies: ISuppliesEntrys[];
+};

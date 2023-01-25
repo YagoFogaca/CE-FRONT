@@ -35,3 +35,12 @@ export type PropsChart = {
   name: string;
   data: number[];
 };
+
+export type FormSectionInfosFilter = {
+  nome: string;
+  quant: number;
+};
+
+export type PropsFormSectionInfosC = {
+  setFilter: (value: FormSectionInfosFilter) => void;
+};
