@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionGraficos = styled.section`
-  width: 60%;
+  width: 100%;
   padding: 1rem;
 
   .row {
