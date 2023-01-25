@@ -25,7 +25,7 @@ export function SectionInfos({ supplies }: PropsSuppliesEntrys) {
 
   return (
     <C.SectionInfos>
-      <FormSectionInfos setFilter={setFilter} />
+      <FormSectionInfos suppleis={supplies} setFilter={setFilter} />
       {filter.nome ? (
         <>
           <C.SectionInfosDiv>

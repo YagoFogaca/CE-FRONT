@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button';
 import './style.forms.css';
 import { PropsFormSectionInfosC } from '../../utils/types/props.types';
 
-export function FormSectionInfos({ setFilter }: PropsFormSectionInfosC) {
+export function FormSectionInfos({
+  setFilter,
+  suppleis,
+}: PropsFormSectionInfosC) {
   const supplyEntrySearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const search = {
@@ -18,10 +21,12 @@ export function FormSectionInfos({ setFilter }: PropsFormSectionInfosC) {
     <Form className="formSection" onSubmit={supplyEntrySearch}>
       <Form.Group controlId="nome">
         <Form.Label className="labelSection">Nome do insumo</Form.Label>
-        <Form.Control type="text" placeholder="Nome do Insumo" />
-        {/* <Form.Select>
-          <option>Default select</option>
-        </Form.Select> */}
+        <Form.Select>
+          <option></option>;
+          {suppleis.map(supply => {
+            return <option>{supply.nome}</option>;
+          })}
+        </Form.Select>
       </Form.Group>
       {/* <Form.Group controlId="quantidade">
         <Form.Label className="labelSection">Qtde maior que</Form.Label>

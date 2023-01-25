@@ -1,3 +1,5 @@
+import { ISupplies } from '../interfaces/useState.interface';
+
 export type PropsTable = {
   widthP?: boolean;
   bg?: boolean;
@@ -43,4 +45,5 @@ export type FormSectionInfosFilter = {
 
 export type PropsFormSectionInfosC = {
   setFilter: (value: FormSectionInfosFilter) => void;
+  suppleis: ISupplies[];
 };
