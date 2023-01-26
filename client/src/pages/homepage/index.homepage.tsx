@@ -22,7 +22,7 @@ export function Homepage() {
     <>
       <Header />
       <C.SectionHomepageS>
-        <DivInfos />
+        <DivInfos supplies={supply} />
         <SectionInfos supplies={supply} />
       </C.SectionHomepageS>
     </>

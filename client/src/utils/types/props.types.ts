@@ -47,3 +47,7 @@ export type PropsFormSectionInfosC = {
   setFilter: (value: FormSectionInfosFilter) => void;
   suppleis: ISupplies[];
 };
+
+export type PropsDivInfos = {
+  supplies: ISupplies[];
+};
