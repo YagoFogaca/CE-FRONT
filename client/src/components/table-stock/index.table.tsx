@@ -47,7 +47,6 @@ export function TablesStock() {
                 onClick={() => {
                   console.log('Será');
                   navigate(`/supply/${insumo.id}`);
-                  // navigate('/supply/' + );
                 }}
               >
                 <C.TdS widthP displayP>
