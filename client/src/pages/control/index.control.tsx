@@ -20,9 +20,9 @@ export function ControlPage() {
         <C.Section>
           <C.DivSectionS>
             {view.saida ? (
-              <h1>Saida</h1>
+              <h1>Em desenvolvimento</h1>
             ) : view.entrada ? (
-              <h1>Entradas</h1>
+              <h1>Em desenvolvimento</h1>
             ) : (
               <TablesStock />
             )}
