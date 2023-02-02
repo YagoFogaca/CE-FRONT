@@ -19,6 +19,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     overflow-x: hidden;
     height: 100%;
-    background-color: #ebebeb;
+    background-color: #f3f3f3;
   }
 `;
