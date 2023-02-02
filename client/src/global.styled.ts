@@ -2,8 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 10px;
+    --bs-font-sans-serif: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
   }
 
   * {
@@ -19,6 +20,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     overflow-x: hidden;
     height: 100%;
-    background-color: #f3f3f3;
+    background-color: #EAEAEA;
   }
 `;
