@@ -10,14 +10,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export const api = {
   login: async (user: ILogin) => {
-    try {
-      const res = (await axios.post('/auth/login', user)).data;
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('role', res.user.role);
-      return res;
-    } catch (error) {
-      console.log(error);
-    }
+    return (await axios.post('/auth/login', user)).data;
   },
 
   createSupply: async (supply: ICreateSupplies) => {
