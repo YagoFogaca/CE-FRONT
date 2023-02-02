@@ -1,8 +1,8 @@
-import Button from 'react-bootstrap/Button';
+import * as C from './style.login';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../utils/api/api';
-import { SectionFormLoginS } from './style.login';
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -18,15 +18,15 @@ export function LoginPage() {
   };
 
   return (
-    <SectionFormLoginS>
-      <div className="div-section-form">
+    <C.SectionFormLoginS>
+      <C.DivSectionForm>
         <Form className="form-login" onSubmit={login}>
+          <Form.Text className="text-muted">
+            Nome de usuário ou senha incorretos.
+          </Form.Text>
           <Form.Group className="mb-3" controlId="nome_usuario">
             <Form.Label>Nome de Usuário</Form.Label>
             <Form.Control type="text" placeholder="nome_usuario" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="senha">
@@ -36,11 +36,11 @@ export function LoginPage() {
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Lembrar-me" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" className="btn-login">
             Login
           </Button>
         </Form>
-      </div>
-    </SectionFormLoginS>
+      </C.DivSectionForm>
+    </C.SectionFormLoginS>
   );
 }

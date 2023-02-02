@@ -1,29 +1,37 @@
 import styled from 'styled-components';
 
 export const SectionFormLoginS = styled.section`
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  .div-section-form {
-    width: 75%;
-    max-width: 1150px;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #8bb6f50f;
-    border-radius: 10px;
-    box-shadow: 0px 1px 5px #000;
+export const DivSectionForm = styled.div`
+  width: 40%;
+  min-width: 265px;
+  height: 45%;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8bb6f50f;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px #000;
+
+  @media (max-width: 928px) {
+    height: 55%;
   }
 
   .form-login {
-    width: 80%;
+    width: 75%;
   }
 
-  div.form-check {
-    font-size: 1.6rem;
+  .btn-login {
+    width: 100%;
+  }
+
+  .text-muted {
+    color: #ff3333d1 !important;
   }
 `;
