@@ -37,7 +37,7 @@ export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
         <AiOutlineClose
           onClick={closeModal}
           style={{
-            fontSize: '3.5rem',
+            fontSize: '30px',
             color: '#ff1818',
             cursor: 'pointer',
           }}
