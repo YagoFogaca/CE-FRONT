@@ -14,13 +14,7 @@ export const api = {
   },
 
   createSupply: async (supply: ICreateSupplies) => {
-    try {
-      return await (
-        await axios.post('/supplies/create', supply)
-      ).data;
-    } catch (error) {
-      console.log(error);
-    }
+    return await axios.post('/supplies/create', supply);
   },
 
   findAllSpply: async () => {

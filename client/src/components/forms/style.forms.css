@@ -38,3 +38,12 @@ div.marginFormat {
 .labelSection {
   font-size: 16px;
 }
+
+small.error-create-sypply {
+  color: #ff3333d1 !important;
+}
+
+small.create-sypply {
+  font-size: 15px;
+  color: #1a9303 !important;
+}

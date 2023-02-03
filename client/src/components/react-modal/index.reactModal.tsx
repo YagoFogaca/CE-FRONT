@@ -43,7 +43,7 @@ export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
           }}
         />
       </div>
-      <FormCreateSupply />
+      <FormCreateSupply closeModal={closeModal} modalIsOpen />
     </ReactModal>
   );
 }
