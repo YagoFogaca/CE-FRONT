@@ -45,7 +45,6 @@ export function TablesStock() {
             <C.TrS bg={index % 2 === 0 ? true : false} key={index}>
               <BtnS
                 onClick={() => {
-                  console.log('Será');
                   navigate(`/supply/${insumo.id}`);
                 }}
               >

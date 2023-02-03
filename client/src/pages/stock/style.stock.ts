@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  width: 90%;
   background-color: #f8f4ea;
-  margin: 0rem auto;
-  border-top: 5px solid #579bb1;
 
   display: flex;
   flex-wrap: wrap;

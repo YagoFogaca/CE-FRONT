@@ -13,27 +13,27 @@ export const FormSectionTableS = styled.form`
   width: 60%;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 20px;
   @media (max-width: 425px) {
     width: 80%;
   }
 `;
 
 export const InputSectionTableS = styled.input`
-  width: 40%;
+  width: 50%;
   background: #f8f4ea;
   border: 2px solid #939393;
-  padding: 0.6rem 1rem;
-  font-size: 1.8rem;
+  padding: 6px 10px;
+  font-size: 18px;
   border-radius: 10px;
-  @media (max-width: 425px) {
-    font-size: 1.4rem;
+  @media (max-width: 878px) {
+    font-size: 14px;
     width: 80%;
   }
 `;
 
 export const BtnSectionTableS = styled.button`
-  font-size: 2.3rem;
+  font-size: 22px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -44,7 +44,7 @@ export const BtnSectionTableS = styled.button`
   }
 
   svg {
-    font-size: 4.5rem;
+    font-size: 45px;
   }
 
   path {

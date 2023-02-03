@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  width: 100%;
-  height: 90%;
-  padding: 3rem 0;
+  padding: 25px 15px;
   box-sizing: border-box;
 
   display: flex;

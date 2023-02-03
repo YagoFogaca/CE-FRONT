@@ -1,6 +1,5 @@
 import * as C from './style.sectionTable';
 import { GrFormAdd } from 'react-icons/gr';
-import ReactModal from 'react-modal';
 import { PropsSectionTable } from '../../utils/types/props.types';
 import { useState } from 'react';
 import { ReactModalC } from '../react-modal/index.reactModal';

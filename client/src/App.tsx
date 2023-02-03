@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ControlPage } from './pages/control/index.control';
+import { StockPage } from './pages/stock/index.stock';
 import { Homepage } from './pages/homepage/index.homepage';
 import { LoginPage } from './pages/login/index.login';
 import { SupplyPage } from './pages/supply/index.supply';
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/homepage" element={<Homepage />} />
-          <Route path="/controle-estoque" element={<ControlPage />} />
+          <Route path="/controle-estoque" element={<StockPage />} />
           <Route path="/supply/:id" element={<SupplyPage />} />
         </Routes>
       </BrowserRouter>
