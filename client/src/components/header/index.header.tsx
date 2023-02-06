@@ -56,7 +56,7 @@ export function Header() {
               <Link className="nav-link" to="/controle-estoque">
                 Saidas
               </Link>
-              <Link className="nav-link" to="/controle-estoque">
+              <Link className="nav-link" to="/controle-entrada">
                 Entradas
               </Link>
 

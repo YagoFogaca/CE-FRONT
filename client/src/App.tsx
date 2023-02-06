@@ -4,6 +4,7 @@ import { Homepage } from './pages/homepage/index.homepage';
 import { LoginPage } from './pages/login/index.login';
 import { SupplyPage } from './pages/supply/index.supply';
 import { Auth } from './utils/api/interceptors.api';
+import { EntryPage } from './pages/entry/index.entry';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/controle-estoque" element={<StockPage />} />
+          <Route path="/controle-entrada" element={<EntryPage />} />
           <Route path="/supply/:id" element={<SupplyPage />} />
         </Routes>
       </BrowserRouter>
