@@ -7,6 +7,7 @@ import { api } from '../../utils/api/api';
 import { SectionTableS } from '../../components-styled/section-table/index.section-table';
 import { FormSectionTable } from '../form-section-table/index.form-table';
 import { ReactModalC } from '../react-modal/index.reactModal';
+import { FormCreateEntry } from '../forms/index.create-entry';
 
 export function TableEntry() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export function TableEntry() {
       <SectionTableS>
         <FormSectionTable openModal={openModal} setFilter={setFilter} />
         <ReactModalC
-          children={<h1>Foi em cara</h1>}
+          children={<FormCreateEntry />}
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
         />
