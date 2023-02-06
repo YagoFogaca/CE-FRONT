@@ -23,6 +23,7 @@ export interface IEntrySupply {
   id_supply: string;
   id_user: string;
   quant: number;
+  supply: ISupplies;
 }
 
 export interface ISuppliesEntrys extends ISupplies {

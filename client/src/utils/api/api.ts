@@ -56,4 +56,8 @@ export const api = {
       console.log(error);
     }
   },
+
+  findAllEntry: async () => {
+    return (await axios.get('/entry-supply/find-all')).data;
+  },
 };
