@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { DivInfos } from '../../components/div-infos-homepage/index.divInfosHomepage';
+import { Main } from '../../components-styled/main/index.main';
 import { Header } from '../../components/header/index.header';
-import { SectionInfos } from '../../components/section-infos-homepage/index.SectionHomepage';
 import { api } from '../../utils/api/api';
 import { ISuppliesEntrys } from '../../utils/interfaces/useState.interface';
 import * as C from './style.homege';
@@ -12,6 +11,7 @@ export function Homepage() {
   const findSupply = async () => {
     const suppleis = await api.findAllSpply();
     setSupply(suppleis);
+    console.log(suppleis);
   };
 
   useEffect(() => {
@@ -21,10 +21,17 @@ export function Homepage() {
   return (
     <>
       <Header />
-      <C.SectionHomepageS>
-        <DivInfos supplies={supply} />
-        <SectionInfos supplies={supply} />
-      </C.SectionHomepageS>
+      <Main>
+        <C.SectionHomepageS>
+          <div className="card-infos"></div>
+          <div className="grafico-pizza">
+            <div></div>
+            <div></div>
+          </div>
+          <div className="grafico-mes"></div>
+          <div className="grafico-mes"></div>
+        </C.SectionHomepageS>
+      </Main>
     </>
   );
 }
