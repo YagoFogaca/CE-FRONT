@@ -1,21 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as C from '../../components-styled/table-styled/index.table';
-import { SectionTable } from '../section-table/index.sectionTable';
 import { BtnS } from '../../components-styled/btn/index.btn';
 import { IEntrySupply } from '../../utils/interfaces/useState.interface';
 import { api } from '../../utils/api/api';
+import { SectionTableS } from '../../components-styled/section-table/index.section-table';
+import { FormSectionTable } from '../form-section-table/index.form-table';
+import { ReactModalC } from '../react-modal/index.reactModal';
 
 export function TableEntry() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('');
   const [entrys, setEntrys] = useState<IEntrySupply[]>([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const findAllEntry = async () => {
     const findEntrys = await api.findAllEntry();
     setEntrys(findEntrys);
   };
-
   const filterEntry =
     filter.length > 0
       ? entrys.filter(entry => {
@@ -29,7 +37,14 @@ export function TableEntry() {
 
   return (
     <>
-      <SectionTable setFilter={setFilter} />
+      <SectionTableS>
+        <FormSectionTable openModal={openModal} setFilter={setFilter} />
+        <ReactModalC
+          children={<h1>Foi em cara</h1>}
+          closeModal={closeModal}
+          modalIsOpen={modalIsOpen}
+        />
+      </SectionTableS>
       <C.TableS>
         <C.TrS>
           <C.ThS widthP displayP>

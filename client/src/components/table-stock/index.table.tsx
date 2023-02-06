@@ -3,13 +3,24 @@ import { BtnS } from '../../components-styled/btn/index.btn';
 import * as C from '../../components-styled/table-styled/index.table';
 import { api } from '../../utils/api/api';
 import { ISupplies } from '../../utils/interfaces/useState.interface';
-import { SectionTable } from '../section-table/index.sectionTable';
 import { useNavigate } from 'react-router-dom';
+import { SectionTableS } from '../../components-styled/section-table/index.section-table';
+import { FormSectionTable } from '../form-section-table/index.form-table';
+import { ReactModalC } from '../react-modal/index.reactModal';
+import { FormCreateSupply } from '../forms/index.createSupply';
 
 export function TablesStock() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('');
   const [supplies, setSupplies] = useState<ISupplies[]>([]);
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const findAllSupplies = async () => {
     const findSupplies = await api.findAllSpply();
@@ -29,7 +40,14 @@ export function TablesStock() {
 
   return (
     <>
-      <SectionTable setFilter={setFilter} />
+      <SectionTableS>
+        <FormSectionTable openModal={openModal} setFilter={setFilter} />
+        <ReactModalC
+          children={<FormCreateSupply closeModal={closeModal} modalIsOpen />}
+          closeModal={closeModal}
+          modalIsOpen={modalIsOpen}
+        />
+      </SectionTableS>
       <C.TableS>
         <C.TrS>
           <C.ThS widthP displayP>

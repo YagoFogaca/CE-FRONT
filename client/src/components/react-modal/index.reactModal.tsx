@@ -1,7 +1,6 @@
 import { AiOutlineClose } from 'react-icons/ai';
 import ReactModal from 'react-modal';
 import { PropsReactModalC } from '../../utils/types/props.types';
-import { FormCreateSupply } from '../forms/index.createSupply';
 
 ReactModal.setAppElement('#root');
 
@@ -20,7 +19,11 @@ const customStyles = {
   },
 };
 
-export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
+export function ReactModalC({
+  closeModal,
+  modalIsOpen,
+  children,
+}: PropsReactModalC) {
   return (
     <ReactModal
       preventScroll
@@ -43,7 +46,7 @@ export function ReactModalC({ closeModal, modalIsOpen }: PropsReactModalC) {
           }}
         />
       </div>
-      <FormCreateSupply closeModal={closeModal} modalIsOpen />
+      {children}
     </ReactModal>
   );
 }

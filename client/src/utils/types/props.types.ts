@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { ISupplies } from '../interfaces/useState.interface';
 
 export type PropsTable = {
@@ -24,9 +25,15 @@ export type PropsSectionTable = {
   setFilter: (value: string) => void;
 };
 
+export type PropsFormSectionTable = {
+  setFilter: (value: string) => void;
+  openModal: () => void;
+};
+
 export type PropsReactModalC = {
   modalIsOpen: boolean;
   closeModal: () => void;
+  children?: ReactNode;
 };
 
 export type PropsChart = {
