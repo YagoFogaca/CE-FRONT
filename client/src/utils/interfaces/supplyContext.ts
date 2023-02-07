@@ -1,3 +1,8 @@
+export interface ICreateContext {
+  suppleis: ISupplyContext[];
+  SetSuppleis: (suppleis: ISupplyContext[]) => void;
+}
+
 export interface ISupplyContext {
   id: string;
   id_user: string;

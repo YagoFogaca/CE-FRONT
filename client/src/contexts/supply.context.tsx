@@ -1,13 +1,21 @@
 import { createContext, useState } from 'react';
-import { ISupplyContext } from '../utils/interfaces/supplyContext';
+import {
+  ICreateContext,
+  ISupplyContext,
+} from '../utils/interfaces/supplyContext';
 
-export const supplyContext = createContext<ISupplyContext[]>([]);
+export const supplyContext = createContext<ICreateContext>({
+  suppleis: [],
+  SetSuppleis: () => {},
+});
 
 export const SupplyContextProvider = ({
   children,
 }: React.PropsWithChildren) => {
-  const [supply, SetSupply] = useState<ISupplyContext[]>([]);
+  const [suppleis, SetSuppleis] = useState<ISupplyContext[]>([]);
   return (
-    <supplyContext.Provider value={supply}>{children}</supplyContext.Provider>
+    <supplyContext.Provider value={{ suppleis, SetSuppleis }}>
+      {children}
+    </supplyContext.Provider>
   );
 };

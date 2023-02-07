@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Button, ButtonToolbar, Form, Col } from 'react-bootstrap';
 import { api } from '../../utils/api/api';
 import { PropsReactModalC } from '../../utils/types/props.types';
+import { supplyContext } from '../../contexts/supply.context';
 import './style.forms.css';
 
 export function FormCreateEntry() {
+  const { suppleis } = useContext(supplyContext);
+
   const [errorCreateSypply, SetErrorCreateSypply] = useState(false);
   const supplyEntrySearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,10 +35,13 @@ export function FormCreateEntry() {
         <Form.Group as={Col} controlId="id_supply">
           <Form.Label>Insumo</Form.Label>
           <Form.Select defaultValue="Choose...">
-            <option value="1">Insumo - 1</option>
-            <option value="2">Insumo - 2</option>
-            <option value="3">Insumo - 3</option>
-            <option value="4">Insumo - 4</option>
+            {suppleis.map((supply, index) => {
+              return (
+                <option key={index} value={supply.id}>
+                  {supply.nome}
+                </option>
+              );
+            })}
           </Form.Select>
         </Form.Group>
         <Form.Group as={Col} controlId="quant">
