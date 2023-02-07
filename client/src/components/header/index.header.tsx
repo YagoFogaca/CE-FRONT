@@ -64,7 +64,7 @@ export function Header() {
                 title="Usuários"
                 id={`offcanvasNavbarDropdown-expand-lg`}
               >
-                <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
+                {/* <NavDropdown.Item href="#action/3.1"></NavDropdown.Item> */}
                 {userAdmin ? (
                   <NavDropdown.Item
                     style={{
