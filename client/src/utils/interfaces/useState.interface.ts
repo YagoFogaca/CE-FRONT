@@ -17,12 +17,15 @@ export interface IUpdateSupplies {
   ativo: boolean;
 }
 
-export interface IEntrySupply {
-  data: string;
-  id: string;
+export interface ICreateEntrySupply {
   id_supply: string;
-  id_user: string;
+  id_user: string | null;
   quant: number;
+  data: string;
+}
+
+export interface IEntrySupply extends ICreateEntrySupply {
+  id: string;
   supply: ISupplies;
 }
 

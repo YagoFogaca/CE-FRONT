@@ -1,24 +1,31 @@
 import { useState, useContext } from 'react';
+import { supplyContext } from '../../contexts/supply.context';
 import { Button, ButtonToolbar, Form, Col } from 'react-bootstrap';
 import { api } from '../../utils/api/api';
 import { PropsReactModalC } from '../../utils/types/props.types';
-import { supplyContext } from '../../contexts/supply.context';
 import './style.forms.css';
 
-export function FormCreateEntry() {
+export function FormCreateEntry({ closeModal }: PropsReactModalC) {
   const { suppleis } = useContext(supplyContext);
 
   const [errorCreateSypply, SetErrorCreateSypply] = useState(false);
-  const supplyEntrySearch = (event: React.FormEvent<HTMLFormElement>) => {
+  const supplyEntrySearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const entry = {
-      id_user: localStorage.getItem('id_user'),
-      id_supply: event.currentTarget.id_supply.value,
-      quant: +event.currentTarget.quant.value,
-      data: event.currentTarget.data.value,
-    };
 
-    console.log(entry);
+    try {
+      const entry = {
+        id_user: localStorage.getItem('id_user'),
+        id_supply: event.currentTarget.id_supply.value,
+        quant: +event.currentTarget.quant.value,
+        data: event.currentTarget.data.value + ':00.843Z',
+      };
+      await api.createEntry(entry);
+      closeModal();
+    } catch (error) {
+      alert('Erro ao criar um entrada');
+      SetErrorCreateSypply(true);
+      console.log(error);
+    }
   };
 
   return (
@@ -26,7 +33,7 @@ export function FormCreateEntry() {
       <Col className="mb-3">
         {errorCreateSypply ? (
           <Form.Text className="text-muted error-create-sypply">
-            O nome do insumo não pode ser menor ou igual a 3 caracteres
+            Quantidade de entrada inválida
           </Form.Text>
         ) : (
           <></>
@@ -46,7 +53,7 @@ export function FormCreateEntry() {
         </Form.Group>
         <Form.Group as={Col} controlId="quant">
           <Form.Label>Quantidade em estoque</Form.Label>
-          <Form.Control defaultValue={0} type="number" placeholder="0" />
+          <Form.Control type="number" placeholder="0" />
         </Form.Group>
         <Form.Group as={Col} controlId="data">
           <Form.Label>Data</Form.Label>

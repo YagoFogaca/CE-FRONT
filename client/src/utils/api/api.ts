@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ILogin } from '../interfaces/login.interface';
 import {
+  ICreateEntrySupply,
   ICreateSupplies,
   IUpdateSupplies,
 } from '../interfaces/useState.interface';
@@ -59,5 +60,10 @@ export const api = {
 
   findAllEntry: async () => {
     return (await axios.get('/entry-supply/find-all')).data;
+  },
+
+  createEntry: async (entry: ICreateEntrySupply) => {
+    console.log(entry);
+    return await axios.post('/entry-supply/create', entry);
   },
 };

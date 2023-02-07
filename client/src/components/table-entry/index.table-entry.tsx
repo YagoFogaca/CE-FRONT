@@ -41,7 +41,7 @@ export function TableEntry() {
       <SectionTableS>
         <FormSectionTable openModal={openModal} setFilter={setFilter} />
         <ReactModalC
-          children={<FormCreateEntry />}
+          children={<FormCreateEntry closeModal={closeModal} modalIsOpen />}
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
         />
