@@ -5,10 +5,11 @@ import { LoginPage } from './pages/login/index.login';
 import { SupplyPage } from './pages/supply/index.supply';
 import { Auth } from './utils/api/interceptors.api';
 import { EntryPage } from './pages/entry/index.entry';
+import { SupplyContextProvider } from './contexts/supply.context';
 
-function App() {
+export function App() {
   return (
-    <>
+    <SupplyContextProvider>
       <BrowserRouter>
         <Auth />
         <Routes>
@@ -19,8 +20,6 @@ function App() {
           <Route path="/supply/:id" element={<SupplyPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </SupplyContextProvider>
   );
 }
-
-export default App;
