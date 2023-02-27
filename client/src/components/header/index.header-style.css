@@ -12,6 +12,7 @@ aside.closeMenu {
 
 aside.menuOpen {
   width: 200px;
+  position: absolute;
 }
 
 button.menuOpener {
