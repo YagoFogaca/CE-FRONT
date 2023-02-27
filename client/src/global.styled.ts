@@ -19,4 +19,9 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-color: #EAEAEA;
   }
+
+  #root {
+    display: flex;
+    flex-direction: row;
+  }
 `;
