@@ -1,0 +1,85 @@
+aside {
+  min-height: 100vh;
+  background-color: rgb(32, 34, 37);
+  transition: all 0.3s ease 0s;
+  overflow-x: hidden;
+  padding-left: 20px;
+}
+
+aside.closeMenu {
+  width: 65px;
+}
+
+aside.menuOpen {
+  width: 200px;
+}
+
+button.menuOpener {
+  height: 64px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  margin-bottom: 45px;
+  background-color: transparent;
+  border: none;
+}
+
+div.menuLine {
+  width: 32px;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.4s ease 0s;
+}
+
+div.menuLineOpen:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+div.menuLineOpen:nth-child(2) {
+  display: none;
+}
+
+div.menuLineOpen:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+li a {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #ffffff54;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+}
+
+li a:hover {
+  color: #ffffffd3;
+}
+
+svg {
+  font-size: 30px;
+  color: #ffffffd3;
+}
+
+@media (max-width: 767px) {
+  aside.menuOpen {
+    width: 85%;
+  }
+}

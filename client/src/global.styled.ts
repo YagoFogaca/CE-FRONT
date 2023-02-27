@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --bs-font-sans-serif: 'Montserrat', sans-serif;
+    --bs-font-sans-serif: 'Open Sans',sans-serif;
     font-weight: 300;
     font-size: 16px;
   }
@@ -10,16 +10,13 @@ export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
-
-  html {
-    height: 100%;
-  }
-
+  
+  html,
   body,
   #root {
     overflow-x: hidden;
-    height: 100%;
     background-color: #EAEAEA;
   }
 `;
