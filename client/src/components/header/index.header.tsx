@@ -35,31 +35,51 @@ export function Header() {
             <li>
               <Link to="">
                 <TbHome2 />
-                Home
+                <span
+                  className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
+                >
+                  Home
+                </span>
               </Link>
             </li>
             <li>
               <Link to="">
                 <TbPackage />
-                Estoque
+                <span
+                  className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
+                >
+                  Estoque
+                </span>
               </Link>
             </li>
             <li>
               <Link to="">
                 <TbPackgeImport />
-                Entradas
+                <span
+                  className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
+                >
+                  Entradas
+                </span>
               </Link>
             </li>
             <li>
               <Link to="">
                 <TbPackgeExport />
-                Saidas
+                <span
+                  className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
+                >
+                  Saidas
+                </span>
               </Link>
             </li>
             <li>
               <Link to="">
                 <TbUser />
-                Usuarios
+                <span
+                  className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
+                >
+                  Usuarios
+                </span>
               </Link>
             </li>
           </ul>

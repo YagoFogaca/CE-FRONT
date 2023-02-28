@@ -73,6 +73,14 @@ li a:hover {
   color: #ffffffd3;
 }
 
+span.textLink {
+  opacity: 0;
+}
+
+span.textLinkOpen {
+  opacity: 1;
+}
+
 svg {
   font-size: 30px;
   color: #ffffffd3;
