@@ -23,5 +23,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: row;
+    gap: 10px;
   }
 `;
