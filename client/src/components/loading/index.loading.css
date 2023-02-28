@@ -1,0 +1,22 @@
+#section-loading {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading {
+  animation: is-loading 1s infinite;
+  width: 75px;
+  height: 75px;
+  border: 6px solid #8b8e8fb2;
+  border-top-color: #67cbf3;
+  border-radius: 100%;
+}
+
+@keyframes is-loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
