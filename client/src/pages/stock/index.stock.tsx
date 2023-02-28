@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { mocks } from '../../mocks';
+import { Filtering } from '../../utils/filter/index.filter';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
 import { Loading } from '../../components/loading/index.loading';
 import * as C from '../../styled-components/table/index.table';
 
 export function StockPage() {
+  const [filter, setFilter] = useState('');
+  const [supply, setSupply] = useState();
+  const filtering = Filtering({ data: mocks, filter: filter });
+
   return (
     <>
       <PatternSection>
-        <SectionFilter />
+        <SectionFilter setFilter={setFilter} />
         {/* <Loading /> */}
         <C.Table>
           <C.Thead>
@@ -21,7 +27,7 @@ export function StockPage() {
             </C.Tr>
           </C.Thead>
           <C.Tbody>
-            {mocks.map((item, index) => {
+            {filtering.map((item, index) => {
               return (
                 <C.Tr key={index}>
                   <C.TdConfig display={true}>{item.id}</C.TdConfig>
