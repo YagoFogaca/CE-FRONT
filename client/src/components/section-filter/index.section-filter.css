@@ -1,0 +1,21 @@
+.section-filter {
+  padding: 35px 10px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #00000047;
+  border-top: 1px solid #00000047;
+}
+
+.input-filter {
+  padding: 6px 10px;
+  font-size: 17px;
+  width: 39%;
+  font-family: monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid #00000073;
+  border-radius: 6px;
+}
+
+.input-filter:focus-visible {
+  outline: 1px solid #00000047;
+}
