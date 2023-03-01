@@ -1,4 +1,5 @@
 import { PropsSectionFilter } from '../../utils/types/index.props';
+import { BtnCreate } from '../btn-create/index.btn-create';
 import './index.section-filter.css';
 
 export function SectionFilter({ setFilter }: PropsSectionFilter) {
@@ -14,6 +15,7 @@ export function SectionFilter({ setFilter }: PropsSectionFilter) {
             setFilter(e.currentTarget.value);
           }}
         />
+        <BtnCreate />
       </section>
     </>
   );

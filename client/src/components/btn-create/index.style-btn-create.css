@@ -1,0 +1,25 @@
+div.card-btnCreate {
+  position: relative;
+  margin-right: 25px;
+}
+
+button.btnCreate {
+  border: none;
+  background: transparent;
+}
+
+button.btnCreate svg {
+  color: #ff0000 !important;
+}
+
+div.infoBtn {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  right: 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+div.card-btnCreate:hover div.infoBtn {
+  opacity: 0.75;
+}

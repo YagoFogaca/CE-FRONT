@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { ISupply } from '../interfaces/index.supply';
 
 export type PropsLineTable = {
@@ -11,4 +12,10 @@ export type PropsFiltering = {
 
 export type PropsSectionFilter = {
   setFilter: (filter: string) => void;
+};
+
+export type PropsModal = {
+  modalIsOpen: boolean;
+  closeModal: () => void;
+  children?: ReactNode;
 };
