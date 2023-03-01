@@ -8,6 +8,10 @@ export class Api {
   static async login(user: IUserLogin) {
     return (await axios.post('/auth/login', user)).data;
   }
+
+  static async findALLSupplies() {
+    return (await axios.get('/supplies/find-all')).data;
+  }
 }
 
 // export const api = {

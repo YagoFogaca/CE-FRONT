@@ -40,6 +40,7 @@ export const Th = styled.th<PropsLineTable>`
 
 export const Td = styled.td<PropsLineTable>`
   width: 20%;
+  overflow-x: clip;
   @media (max-width: 768px) {
     display: ${props => (props.display ? 'none' : 'block')};
   }
