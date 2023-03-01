@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IUserLogin } from '../interfaces/index.api';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://ce-api-production.up.railway.app';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export class Api {
