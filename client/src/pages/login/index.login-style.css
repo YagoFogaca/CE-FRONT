@@ -1,0 +1,45 @@
+.sectionForm {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202225;
+}
+
+.cardForm {
+  width: 35%;
+  height: 45%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffffd3;
+  color: #202225;
+  box-shadow: 0px 0px 15px #000000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardInfos {
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+small.textError {
+  color: #ff0000af;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+small.textErrorActive {
+  opacity: 1;
+}
+
+input.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #f3f3f3;
+  outline: 0;
+  box-shadow: 0 0 0 1.5px #00000080;
+}
