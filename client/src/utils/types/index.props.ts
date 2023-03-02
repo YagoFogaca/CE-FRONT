@@ -10,8 +10,13 @@ export type PropsFiltering = {
   data: ISupply[] | [];
 };
 
+export type PropsBtnCreate = {
+  children: ReactNode;
+};
+
 export type PropsSectionFilter = {
   setFilter: (filter: string) => void;
+  children: ReactNode;
 };
 
 export type PropsModal = {

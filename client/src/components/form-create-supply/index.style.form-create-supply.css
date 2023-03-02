@@ -1,0 +1,31 @@
+select.form-select:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #f3f3f3;
+  outline: 0;
+  box-shadow: 0 0 0 1.5px #00000080;
+}
+
+input.invalidInput {
+  border-color: #fa1717c0 !important;
+}
+
+small.form-text {
+  display: none;
+}
+
+small.form-textInvalide {
+  display: flex;
+}
+
+input.invalidInput:focus {
+  border-color: #fa1717c0 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 rgb(13 110 253 / 25%) !important;
+}
+
+div.sectionBtn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 35px;
+}

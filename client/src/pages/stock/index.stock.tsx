@@ -5,6 +5,7 @@ import { Filtering } from '../../utils/filter/index.filter';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
 import { Loading } from '../../components/loading/index.loading';
+import { FormCreateSupply } from '../../components/form-create-supply/index.form-create-supply';
 import * as C from '../../styled-components/table/index.table';
 
 export function StockPage() {
@@ -31,7 +32,7 @@ export function StockPage() {
   return (
     <>
       <PatternSection>
-        <SectionFilter setFilter={setFilter} />
+        <SectionFilter setFilter={setFilter} children={<FormCreateSupply />} />
 
         {loading ? (
           <Loading />
