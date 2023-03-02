@@ -13,6 +13,15 @@ export function StockPage() {
   const [loading, setLoading] = useState(true);
   const [supply, setSupply] = useState<ISupply[]>([]);
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const modalIsOpen = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+
   const findSupplies = async () => {
     try {
       const supplies = await Api.findALLSupplies();
@@ -27,12 +36,18 @@ export function StockPage() {
 
   useEffect(() => {
     findSupplies();
-  }, []);
+  }, [isOpenModal]);
 
   return (
     <>
       <PatternSection>
-        <SectionFilter setFilter={setFilter} children={<FormCreateSupply />} />
+        <SectionFilter
+          setFilter={setFilter}
+          closeModal={closeModal}
+          isOpenModal={isOpenModal}
+          modalIsOpen={modalIsOpen}
+          children={<FormCreateSupply closeModal={closeModal} />}
+        />
 
         {loading ? (
           <Loading />

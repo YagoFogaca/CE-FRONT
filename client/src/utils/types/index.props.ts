@@ -11,11 +11,9 @@ export type PropsFiltering = {
 };
 
 export type PropsBtnCreate = {
-  children: ReactNode;
-};
-
-export type PropsSectionFilter = {
-  setFilter: (filter: string) => void;
+  closeModal: () => void;
+  modalIsOpen: () => void;
+  isOpenModal: boolean;
   children: ReactNode;
 };
 
@@ -23,4 +21,16 @@ export type PropsModal = {
   modalIsOpen: boolean;
   closeModal: () => void;
   children?: ReactNode;
+};
+
+export type PropsSectionFilter = {
+  setFilter: (filter: string) => void;
+  closeModal: () => void;
+  modalIsOpen: () => void;
+  isOpenModal: boolean;
+  children: ReactNode;
+};
+
+export type PropsFormCreateSupply = {
+  closeModal: () => void;
 };

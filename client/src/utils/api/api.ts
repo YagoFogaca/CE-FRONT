@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { IUserLogin } from '../interfaces/index.api';
+import { ICreateSupply } from '../interfaces/index.supply';
 
 axios.defaults.baseURL = 'https://ce-api-production.up.railway.app';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -11,6 +12,10 @@ export class Api {
 
   static async findALLSupplies() {
     return (await axios.get('/supplies/find-all')).data;
+  }
+
+  static async createSupply(supply: ICreateSupply) {
+    return await axios.post('/supplies/create', supply);
   }
 }
 

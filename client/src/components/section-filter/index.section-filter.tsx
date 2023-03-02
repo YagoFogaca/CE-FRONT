@@ -2,7 +2,13 @@ import { PropsSectionFilter } from '../../utils/types/index.props';
 import { BtnCreate } from '../btn-create/index.btn-create';
 import './index.section-filter.css';
 
-export function SectionFilter({ setFilter, children }: PropsSectionFilter) {
+export function SectionFilter({
+  setFilter,
+  closeModal,
+  modalIsOpen,
+  isOpenModal,
+  children,
+}: PropsSectionFilter) {
   return (
     <>
       <section className="section-filter">
@@ -15,7 +21,12 @@ export function SectionFilter({ setFilter, children }: PropsSectionFilter) {
             setFilter(e.currentTarget.value);
           }}
         />
-        <BtnCreate children={children} />
+        <BtnCreate
+          children={children}
+          isOpenModal={isOpenModal}
+          closeModal={closeModal}
+          modalIsOpen={modalIsOpen}
+        />
       </section>
     </>
   );
