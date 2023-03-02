@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import { Api } from '../../utils/api/api';
+import { PropsFormCreateSupply } from '../../utils/types/index.props';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './index.style.form-create-supply.css';
 
-export function FormCreateSupply() {
+export function FormCreateSupply({ closeModal }: PropsFormCreateSupply) {
   const [validateNameSupply, setValidateNameSupply] = useState(false);
   const [validateQuantSupply, setValidateQuanSupply] = useState(false);
+  const [validateProcessCreate, setValidateProcessCreate] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
     if (e.currentTarget.value.length < 3) {
       setValidateNameSupply(true);
     } else {
@@ -16,35 +20,43 @@ export function FormCreateSupply() {
   };
 
   const handleChangeQuant = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
     if (+e.currentTarget.value < 0) {
-      console.log(false);
       setValidateQuanSupply(true);
     } else {
-      console.log(false);
       setValidateQuanSupply(false);
     }
   };
 
-  const createSupply = (e: React.FormEvent<HTMLFormElement>) => {
+  const createSupply = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const supply = {
         nome: e.currentTarget.nome.value,
         quant_estoque: +e.currentTarget.quant_estoque.value,
         unidade: e.currentTarget.unidade.value,
-        ativo: e.currentTarget.ativo.value,
+        ativo: e.currentTarget.ativo.value === 'ativo' ? true : false,
         id_user: localStorage.getItem('id_user'),
       };
 
-      console.log(supply);
-    } catch (error) {}
+      await Api.createSupply(supply);
+
+      closeModal();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setValidateProcessCreate(true);
+      setLoading(false);
+    }
   };
 
   return (
     <>
       <Form onSubmit={createSupply}>
+        <Form.Text className={validateProcessCreate ? 'form-textInvalide' : ''}>
+          Ocorreu um erro ao criar o insumo
+        </Form.Text>
         <Form.Group className={'mb-3'} controlId="nome">
           <Form.Label>Nome insumo</Form.Label>
           <Form.Control
@@ -93,9 +105,13 @@ export function FormCreateSupply() {
           <Button
             variant="success"
             type="submit"
-            disabled={validateQuantSupply || validateNameSupply ? true : false}
+            disabled={
+              validateQuantSupply || validateNameSupply || isLoading
+                ? true
+                : false
+            }
           >
-            Criar
+            {isLoading ? 'Criando...' : 'Criar'}
           </Button>
 
           <Button variant="danger" type="reset">
