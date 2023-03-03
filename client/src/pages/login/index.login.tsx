@@ -20,7 +20,7 @@ export function LoginPage() {
       localStorage.setItem('token', userLogin.token);
       localStorage.setItem('id_user', userLogin.user.id);
       localStorage.setItem('role', userLogin.user.role);
-      navigate('/controle/estoque');
+      navigate('/controle/home');
     } catch (error) {
       console.log(error);
       setMsgError(true);
