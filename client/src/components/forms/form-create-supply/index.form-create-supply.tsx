@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Api } from '../../utils/api/api';
-import { PropsFormCreateSupply } from '../../utils/types/index.props';
+import { Api } from '../../../utils/api/api';
+import { PropsFormCreateSupply } from '../../../utils/types/index.props';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './index.style.form-create-supply.css';
