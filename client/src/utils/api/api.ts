@@ -14,6 +14,10 @@ export class Api {
     return (await axios.get('/supplies/find-all')).data;
   }
 
+  static async findByIdSupply(id: string | undefined) {
+    return (await axios.get('/supplies/find/' + id)).data;
+  }
+
   static async createSupply(supply: ICreateSupply) {
     return (await axios.post('/supplies/create', supply)).data;
   }

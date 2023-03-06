@@ -1,26 +1,40 @@
+import { useState, useEffect } from 'react';
+import { ISupply } from '../../utils/interfaces/index.supply';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { Form, Col, Button } from 'react-bootstrap';
 import './index.style.supply.css';
+import { useParams } from 'react-router-dom';
+import { Api } from '../../utils/api/api';
 
 export function SupplyPage() {
+  const [supply, setSupply] = useState<ISupply>();
+  const { id } = useParams();
+
+  const findByIdSupply = async () => {
+    try {
+      const supply = await Api.findByIdSupply(id);
+      setSupply(supply);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    findByIdSupply();
+  }, []);
+
   return (
     <>
       <PatternSection>
         <section className="section-infos">
           <div className="div-infos-1">
-            {/* <p>ID: {supply?.id}</p>
-            <p>Nome: {supply?.nome}</p> */}
-            <p>ID: 151535132321321sda31d1as51d5as1d56asd</p>
-            <p>Nome: DISCO DE CORTE 7"</p>
+            <p>ID: {supply?.id}</p>
+            <p>Nome: {supply?.nome}</p>
           </div>
           <div className="div-infos-2">
-            {/* <p>Quantidade em estoque: {supply?.quant_estoque}</p>
+            <p>Quantidade em estoque: {supply?.quant_estoque}</p>
             <p>Unidade: {supply?.unidade}</p>
-            <p>Ativo: {supply?.ativo ? 'ATIVO' : 'OBSOLETO'}</p> */}
-
-            <p>Quantidade em estoque: 35</p>
-            <p>Unidade: pç</p>
-            <p>Ativo: ativo</p>
+            <p>Ativo: {supply?.ativo ? 'ATIVO' : 'OBSOLETO'}</p>
           </div>
         </section>
 
@@ -30,7 +44,7 @@ export function SupplyPage() {
             <Form.Control
               type="text"
               placeholder="Nome do Insumo"
-              // defaultValue={supply?.nome}
+              defaultValue={supply?.nome}
             />
           </Form.Group>
 
@@ -39,13 +53,12 @@ export function SupplyPage() {
             <Form.Control
               type="number"
               placeholder="0"
-              // defaultValue={supply?.quant_estoque}
+              defaultValue={supply?.quant_estoque}
             />
           </Form.Group>
           <Form.Group as={Col} controlId="unidade">
             <Form.Label>Unidade</Form.Label>
-            {/* <Form.Select defaultValue={supply?.unidade}> */}
-            <Form.Select>
+            <Form.Select defaultValue={supply?.unidade}>
               <option value="m">Metros - M </option>
               <option value="lt">Lata - LT</option>
               <option value="cx">Caixa - CX</option>
@@ -54,8 +67,7 @@ export function SupplyPage() {
           </Form.Group>
           <Form.Group as={Col} controlId="ativo">
             <Form.Label>Aplicavel</Form.Label>
-            {/* defaultValue={supply?.ativo ? 'ATIVO' : 'OBSOLETO'} */}
-            <Form.Select>
+            <Form.Select defaultValue={supply?.ativo ? 'ATIVO' : 'OBSOLETO'}>
               <option>Ativo</option>
               <option>Obsoleto</option>
             </Form.Select>

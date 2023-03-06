@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ISupply } from '../../utils/interfaces/index.supply';
 import { Api } from '../../utils/api/api';
 import { Filtering } from '../../utils/filter/index.filter';
@@ -12,6 +13,7 @@ export function StockPage() {
   const [filter, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [supply, setSupply] = useState<ISupply[]>([]);
+  const navigate = useNavigate();
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const modalIsOpen = () => {
@@ -73,7 +75,15 @@ export function StockPage() {
             <C.Tbody>
               {filtering.map((item, index) => {
                 return (
-                  <C.Tr key={index}>
+                  <C.Tr
+                    style={{
+                      cursor: 'pointer',
+                    }}
+                    key={index}
+                    onClick={() => {
+                      navigate(`/controle/supply/${item.id}`);
+                    }}
+                  >
                     <C.TdConfig display={true}>{item.id}</C.TdConfig>
                     <C.TdConfig>{item.nome}</C.TdConfig>
                     <C.Td>{item.quant_estoque}</C.Td>
