@@ -1,0 +1,33 @@
+.section-infos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.div-infos-1 {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.div-infos-2 {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+p {
+  font-size: 19px;
+}
+
+div.sectionBtn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 35px;
+  margin-top: 25px;
+}
