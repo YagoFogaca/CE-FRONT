@@ -1,5 +1,6 @@
 import ReactModal from 'react-modal';
 import { PropsModal } from '../../utils/types/index.props';
+import { AiOutlineClose } from 'react-icons/ai';
 
 ReactModal.setAppElement('#root');
 
@@ -33,14 +34,14 @@ export function Modal({ closeModal, modalIsOpen, children }: PropsModal) {
             justifyContent: 'flex-end',
           }}
         >
-          {/* <AiOutlineClose
+          <AiOutlineClose
             onClick={closeModal}
             style={{
               fontSize: '30px',
               color: '#ff1818',
               cursor: 'pointer',
             }}
-          /> */}
+          />
         </div>
         {children}
       </ReactModal>
