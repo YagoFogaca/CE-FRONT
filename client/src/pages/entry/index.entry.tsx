@@ -6,6 +6,7 @@ import { PatternSection } from '../../styled-components/pattern-section/index.se
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
 import { Loading } from '../../components/loading/index.loading';
 import * as C from '../../styled-components/table/index.table';
+import { FormCreateEntry } from '../../components/forms/form-create-entry/index.form-create-entry';
 
 export function EntryPage() {
   const [filter, setFilter] = useState('');
@@ -25,7 +26,6 @@ export function EntryPage() {
     try {
       const findEntrys = await Api.findAllEntry();
       setEntry(findEntrys);
-      console.log(findEntrys);
 
       setLoading(false);
     } catch (error) {
@@ -55,7 +55,7 @@ export function EntryPage() {
           closeModal={closeModal}
           isOpenModal={isOpenModal}
           modalIsOpen={modalIsOpen}
-          children={<h1>Olá</h1>}
+          children={<FormCreateEntry closeModal={closeModal} />}
         />
         {loading ? (
           <Loading />

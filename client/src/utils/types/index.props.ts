@@ -33,6 +33,7 @@ export type PropsSectionFilter = {
   children: ReactNode;
 };
 
-export type PropsFormCreateSupply = {
+// mudar para generico
+export type PropsFormCreate = {
   closeModal: () => void;
 };
