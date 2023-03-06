@@ -32,7 +32,15 @@ export function StockPage() {
     }
   };
 
-  const filtering = Filtering({ data: supply, filter: filter });
+  const includesFunc = (supply: ISupply) => {
+    return supply.nome.toLowerCase().includes(filter.toLowerCase());
+  };
+
+  const filtering: ISupply[] = Filtering({
+    data: supply,
+    filter: filter,
+    functionIncludes: includesFunc,
+  });
 
   useEffect(() => {
     findSupplies();

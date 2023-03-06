@@ -15,7 +15,11 @@ export class Api {
   }
 
   static async createSupply(supply: ICreateSupply) {
-    return await axios.post('/supplies/create', supply);
+    return (await axios.post('/supplies/create', supply)).data;
+  }
+
+  static async findAllEntry() {
+    return (await axios.get('/entry-supply/find-all')).data;
   }
 }
 

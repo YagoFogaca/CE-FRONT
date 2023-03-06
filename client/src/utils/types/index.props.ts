@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { IEntry } from '../interfaces/index.entry';
 import { ISupply } from '../interfaces/index.supply';
 
 export type PropsLineTable = {
@@ -7,7 +8,8 @@ export type PropsLineTable = {
 
 export type PropsFiltering = {
   filter: string;
-  data: ISupply[] | [];
+  data: any;
+  functionIncludes: (arg: any) => {};
 };
 
 export type PropsBtnCreate = {
