@@ -33,7 +33,7 @@ export function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="">
+              <Link to="home">
                 <TbHome2 />
                 <span
                   className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
@@ -43,7 +43,7 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link to="">
+              <Link to="estoque">
                 <TbPackage />
                 <span
                   className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
@@ -53,7 +53,7 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link to="">
+              <Link to="entry">
                 <TbPackgeImport />
                 <span
                   className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
@@ -63,7 +63,7 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link to="">
+              <Link to="exit">
                 <TbPackgeExport />
                 <span
                   className={isOpenMenu ? 'textLink textLinkOpen' : 'textLink'}
