@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { SupplyContextProvider } from './context/supply.context';
 import { Header } from './components/header/index.header';
 import { HomePage } from './pages/home/index.home';
 import { StockPage } from './pages/stock/index.stock';
@@ -7,7 +8,7 @@ import { SupplyPage } from './pages/supply/index.supply';
 
 export function AppRoutes() {
   return (
-    <>
+    <SupplyContextProvider>
       <Header />
       <Routes>
         <Route path="home" element={<HomePage />} />
@@ -15,6 +16,6 @@ export function AppRoutes() {
         <Route path="entry" element={<EntryPage />} />
         <Route path="supply/:id" element={<SupplyPage />} />
       </Routes>
-    </>
+    </SupplyContextProvider>
   );
 }
