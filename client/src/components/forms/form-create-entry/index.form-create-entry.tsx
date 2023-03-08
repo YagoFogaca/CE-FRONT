@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { supplyContext } from '../../../context/supply.context';
+import { Api } from '../../../utils/api/api';
 import { PropsFormCreate } from '../../../utils/types/index.props';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../index.style.form-create.css';
 
 export function FormCreateEntry({ closeModal }: PropsFormCreate) {
+  const { suppleis } = useContext(supplyContext);
+  const [validateDataEntry, setValidateDataEntry] = useState(true);
   const [validateQuantSupply, setValidateQuanSupply] = useState(false);
   const [validateProcessCreate, setValidateProcessCreate] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -26,18 +30,12 @@ export function FormCreateEntry({ closeModal }: PropsFormCreate) {
         id_user: localStorage.getItem('id_user'),
         id_supply: e.currentTarget.id_supply.value,
         quant: +e.currentTarget.quant.value,
-        data: e.currentTarget.data.value,
+        data: e.currentTarget.data.value + ':00.843Z',
       };
 
-      // Chamar api
-      //   setLoading(false);
-
-      //   closeModal();
-      setTimeout(() => {
-        setLoading(false);
-
-        closeModal();
-      }, 10000);
+      await Api.createEntry(entry);
+      setLoading(false);
+      closeModal();
     } catch (error) {
       console.log(error);
       setValidateProcessCreate(true);
@@ -54,10 +52,13 @@ export function FormCreateEntry({ closeModal }: PropsFormCreate) {
         <Form.Group className={'mb-3'} controlId="id_supply">
           <Form.Label>Nome insumo</Form.Label>
           <Form.Select defaultValue="Choose...">
-            <option value="colocar id">A sla</option>
-            <option value="lt">@ - LT</option>
-            <option value="cx">3 - CX</option>
-            <option value="pç">5 - PÇ</option>
+            {suppleis.map((supply, index) => {
+              return (
+                <option value={supply.id} key={index}>
+                  {supply.nome}
+                </option>
+              );
+            })}
           </Form.Select>
         </Form.Group>
 
@@ -76,14 +77,31 @@ export function FormCreateEntry({ closeModal }: PropsFormCreate) {
 
         <Form.Group className={'mb-3'} controlId="data">
           <Form.Label>Data</Form.Label>
-          <Form.Control type="datetime-local" />
+          <Form.Control
+            className={validateDataEntry ? 'invalidInput' : ''}
+            type="datetime-local"
+            onChange={e => {
+              if (e.currentTarget.value.length >= 1) {
+                setValidateDataEntry(false);
+              } else {
+                setValidateDataEntry(true);
+              }
+            }}
+          />
+          <Form.Text className={validateDataEntry ? 'form-textInvalide' : ''}>
+            Você precisa informar uma data
+          </Form.Text>
         </Form.Group>
 
         <div className="sectionBtn">
           <Button
             variant="success"
             type="submit"
-            disabled={validateQuantSupply || isLoading ? true : false}
+            disabled={
+              validateQuantSupply || isLoading || validateDataEntry
+                ? true
+                : false
+            }
           >
             {isLoading ? 'Criando...' : 'Criar'}
           </Button>
