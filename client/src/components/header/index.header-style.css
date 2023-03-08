@@ -74,10 +74,12 @@ li a:hover {
 }
 
 span.textLink {
+  display: none;
   opacity: 0;
 }
 
 span.textLinkOpen {
+  display: block;
   opacity: 1;
 }
 
