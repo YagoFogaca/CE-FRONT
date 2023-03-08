@@ -64,10 +64,9 @@ export function EntryPage() {
             <C.Thead>
               <C.Tr>
                 <C.ThConfig display={true}>Cod</C.ThConfig>
-                <C.ThConfig display={true}>Nome</C.ThConfig>
+                <C.ThConfig>Nome</C.ThConfig>
                 <C.Th>Qtde</C.Th>
                 <C.Th>Data</C.Th>
-                <C.Th display={true}></C.Th>
               </C.Tr>
             </C.Thead>
             <C.Tbody>
@@ -77,7 +76,7 @@ export function EntryPage() {
                     <C.TdConfig display={true}>{item.id}</C.TdConfig>
                     <C.TdConfig>{item.supply.nome}</C.TdConfig>
                     <C.Td>{item.quant}</C.Td>
-                    <C.Td>{item.data}</C.Td>
+                    <C.Td>{item.data.split('T')[0]}</C.Td>
                   </C.Tr>
                 );
               })}
