@@ -10,8 +10,11 @@ import './index.style.supply.css';
 export function SupplyPage() {
   const [supply, setSupply] = useState<ISupply>();
   const [loading, setLoading] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDeleted, setIsLoadingDeleted] = useState(false);
   const [errorDeleted, setErrorDeleted] = useState(false);
+  const [isLoadingUpdated, setIsLoadingUpdated] = useState(false);
+  const [errorUpdated, setErrorUpdated] = useState(false);
+  const [updateSupplyApi, setUpdateSupplyApi] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -27,9 +30,8 @@ export function SupplyPage() {
 
   const deleteSupply = async () => {
     setErrorDeleted(false);
-    setIsLoading(true);
+    setIsLoadingDeleted(true);
     try {
-      // Deve deletar no context
       const supplyDeleted = await Api.deleteSupply(id);
       console.log(supplyDeleted);
       navigate('/controle/estoque');
@@ -39,9 +41,29 @@ export function SupplyPage() {
     }
   };
 
+  const updateSupply = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoadingUpdated(true);
+    try {
+      const supplyUpdated = {
+        nome: e.currentTarget.nome.value,
+        quant_estoque: +e.currentTarget.quant_estoque.value,
+        unidade: e.currentTarget.unidade.value,
+        ativo: e.currentTarget.ativo.value === 'ativo' ? true : false,
+      };
+      await Api.updateSupply(id, supplyUpdated);
+      setIsLoadingUpdated(false);
+      setUpdateSupplyApi(!updateSupplyApi);
+    } catch (error) {
+      console.log(error);
+      setErrorUpdated(true);
+      setIsLoadingUpdated(false);
+    }
+  };
+
   useEffect(() => {
     findByIdSupply();
-  }, []);
+  }, [updateSupplyApi]);
 
   return (
     <>
@@ -61,9 +83,15 @@ export function SupplyPage() {
                 <p>Ativo: {supply?.ativo ? 'ATIVO' : 'OBSOLETO'}</p>
               </div>
             </section>
-            <Form>
-              <Form.Text className={errorDeleted ? 'form-textInvalide' : ''}>
-                Ocorreu um erro ao deletar o insumo
+            <Form onSubmit={updateSupply}>
+              <Form.Text
+                className={
+                  errorDeleted || errorUpdated ? 'form-textInvalide' : ''
+                }
+              >
+                {errorDeleted
+                  ? 'Ocorreu um erro ao deletar o insumo'
+                  : 'Ocorreu um erro ao atualizar o insumo'}
               </Form.Text>
               <Form.Group as={Col} controlId="nome">
                 <Form.Label>Nome</Form.Label>
@@ -96,16 +124,16 @@ export function SupplyPage() {
                 <Form.Select
                   defaultValue={supply?.ativo ? 'ATIVO' : 'OBSOLETO'}
                 >
-                  <option>Ativo</option>
-                  <option>Obsoleto</option>
+                  <option value="ATIVO">Ativo</option>
+                  <option value="OBSOLETO">Obsoleto</option>
                 </Form.Select>
               </Form.Group>
               <div className="sectionBtn">
                 <Button variant="success" type="submit">
-                  Atualizar
+                  {isLoadingUpdated ? 'Atualizando...' : 'Atualizar'}
                 </Button>
                 <Button variant="danger" type="button" onClick={deleteSupply}>
-                  {isLoading ? 'Deletando...' : 'Deletar'}
+                  {isLoadingDeleted ? 'Deletando...' : 'Deletar'}
                 </Button>
               </div>
             </Form>
