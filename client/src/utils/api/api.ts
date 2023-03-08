@@ -23,6 +23,10 @@ export class Api {
     return (await axios.post('/supplies/create', supply)).data;
   }
 
+  static async deleteSupply(id?: string) {
+    return (await axios.delete('/supplies/delete/' + id)).data;
+  }
+
   static async findAllEntry() {
     return (await axios.get('/entry-supply/find-all')).data;
   }
