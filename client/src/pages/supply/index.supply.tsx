@@ -32,8 +32,7 @@ export function SupplyPage() {
     setErrorDeleted(false);
     setIsLoadingDeleted(true);
     try {
-      const supplyDeleted = await Api.deleteSupply(id);
-      console.log(supplyDeleted);
+      await Api.deleteSupply(id);
       navigate('/controle/estoque');
     } catch (error) {
       console.log(error);
