@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Api } from '../../utils/api/api';
-import { IEntry } from '../../utils/interfaces/index.entry';
+import { IControlSupply } from '../../utils/interfaces/index.entry';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
 import { Filtering } from '../../utils/filter/index.filter';
@@ -11,7 +11,7 @@ import * as C from '../../styled-components/table/index.table';
 export function ExitPage() {
   const [filter, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
-  const [exit, setExit] = useState<IEntry[]>([]);
+  const [exit, setExit] = useState<IControlSupply[]>([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const modalIsOpen = () => {
@@ -21,10 +21,10 @@ export function ExitPage() {
     setIsOpenModal(false);
   };
 
-  const includesFunc = (exit: IEntry) => {
+  const includesFunc = (exit: IControlSupply) => {
     return exit.supply.nome.toLowerCase().includes(filter.toLowerCase());
   };
-  const filtering: IEntry[] = Filtering({
+  const filtering: IControlSupply[] = Filtering({
     data: exit,
     filter: filter,
     functionIncludes: includesFunc,

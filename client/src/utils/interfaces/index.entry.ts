@@ -1,6 +1,6 @@
 import { ISupply } from './index.supply';
 
-export interface IEntry {
+export interface IControlSupply {
   id: string;
   id_supply: string;
   id_user: string;
@@ -9,7 +9,7 @@ export interface IEntry {
   supply: ISupply;
 }
 
-export interface ICreateEntry {
+export interface ICreateControlSupply {
   id_supply: string;
   id_user: string | null;
   quant: number;

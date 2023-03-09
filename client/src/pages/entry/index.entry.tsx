@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Api } from '../../utils/api/api';
-import { IEntry } from '../../utils/interfaces/index.entry';
+import { IControlSupply } from '../../utils/interfaces/index.entry';
 import { Filtering } from '../../utils/filter/index.filter';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
@@ -11,7 +11,7 @@ import { FormCreateEntry } from '../../components/forms/form-create-entry/index.
 export function EntryPage() {
   const [filter, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
-  const [entry, setEntry] = useState<IEntry[]>([]);
+  const [entry, setEntry] = useState<IControlSupply[]>([]);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const modalIsOpen = () => {
@@ -33,11 +33,11 @@ export function EntryPage() {
     }
   };
 
-  const includesFunc = (entry: IEntry) => {
+  const includesFunc = (entry: IControlSupply) => {
     return entry.supply.nome.toLowerCase().includes(filter.toLowerCase());
   };
 
-  const filtering: IEntry[] = Filtering({
+  const filtering: IControlSupply[] = Filtering({
     data: entry,
     filter: filter,
     functionIncludes: includesFunc,

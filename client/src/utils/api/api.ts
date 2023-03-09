@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IUserLogin } from '../interfaces/index.api';
-import { ICreateEntry } from '../interfaces/index.entry';
+import { ICreateControlSupply } from '../interfaces/index.entry';
 import { ICreateSupply, IUpdateSupply } from '../interfaces/index.supply';
 
 axios.defaults.baseURL = 'https://ce-api-production.up.railway.app';
@@ -35,7 +35,7 @@ export class Api {
     return (await axios.get('/entry-supply/find-all')).data;
   }
 
-  static async createEntry(entry: ICreateEntry) {
+  static async createEntry(entry: ICreateControlSupply) {
     return await (
       await axios.post('/entry-supply/create', entry)
     ).data;

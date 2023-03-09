@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import { IEntry } from '../interfaces/index.entry';
-import { ISupply } from '../interfaces/index.supply';
 
 export type PropsLineTable = {
   display?: boolean;
