@@ -4,7 +4,7 @@ export interface IControlSupply {
   id: string;
   id_supply: string;
   id_user: string;
-  quant: string;
+  quant: number;
   data: string;
   supply: ISupply;
 }

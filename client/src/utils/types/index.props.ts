@@ -23,6 +23,14 @@ export type PropsModal = {
   children?: ReactNode;
 };
 
+export type PropsModalControl = {
+  modalIsOpen: boolean;
+  closeModal: () => void;
+  nome: string | undefined;
+  quant: number | undefined;
+  data: string | undefined;
+};
+
 export type PropsSectionFilter = {
   setFilter: (filter: string) => void;
   closeModal: () => void;

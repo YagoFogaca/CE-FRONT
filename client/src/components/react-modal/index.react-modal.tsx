@@ -1,6 +1,7 @@
 import ReactModal from 'react-modal';
 import { PropsModal } from '../../utils/types/index.props';
 import { AiOutlineClose } from 'react-icons/ai';
+import { SectionModal } from '../../styled-components/section-modal/index.section-modal';
 
 ReactModal.setAppElement('#root');
 
@@ -28,12 +29,7 @@ export function Modal({ closeModal, modalIsOpen, children }: PropsModal) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}
-        >
+        <SectionModal>
           <AiOutlineClose
             onClick={closeModal}
             style={{
@@ -42,7 +38,7 @@ export function Modal({ closeModal, modalIsOpen, children }: PropsModal) {
               cursor: 'pointer',
             }}
           />
-        </div>
+        </SectionModal>
         {children}
       </ReactModal>
     </>

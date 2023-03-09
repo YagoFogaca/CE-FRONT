@@ -7,11 +7,13 @@ import { SectionFilter } from '../../components/section-filter/index.section-fil
 import { Loading } from '../../components/loading/index.loading';
 import * as C from '../../styled-components/table/index.table';
 import { FormCreateEntry } from '../../components/forms/form-create-entry/index.form-create-entry';
+import { ModalControl } from '../../components/react-modal/modal-control/index.modal-control';
 
 export function EntryPage() {
-  const [filter, setFilter] = useState('');
+  const [filterEntry, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
-  const [entry, setEntry] = useState<IControlSupply[]>([]);
+  const [entrys, setEntrys] = useState<IControlSupply[]>([]);
+  const [entry, setEntry] = useState<IControlSupply | undefined>();
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const modalIsOpen = () => {
@@ -22,10 +24,26 @@ export function EntryPage() {
     setIsOpenModal(false);
   };
 
-  const entrys = async () => {
+  const [isOpenModalEntry, setIsOpenModalEntry] = useState(false);
+  const modalIsOpenEntry = (id: string) => {
+    const entry = entrys
+      .filter(item => {
+        return item.id === id;
+      })
+      .find(item => item);
+
+    setEntry(entry);
+    setIsOpenModalEntry(true);
+  };
+
+  const closeModalEntry = () => {
+    setIsOpenModalEntry(false);
+  };
+
+  const findEntrys = async () => {
     try {
       const findEntrys = await Api.findAllEntry();
-      setEntry(findEntrys);
+      setEntrys(findEntrys);
 
       setLoading(false);
     } catch (error) {
@@ -34,17 +52,17 @@ export function EntryPage() {
   };
 
   const includesFunc = (entry: IControlSupply) => {
-    return entry.supply.nome.toLowerCase().includes(filter.toLowerCase());
+    return entry.supply.nome.toLowerCase().includes(filterEntry.toLowerCase());
   };
 
   const filtering: IControlSupply[] = Filtering({
-    data: entry,
-    filter: filter,
+    data: entrys,
+    filter: filterEntry,
     functionIncludes: includesFunc,
   });
 
   useEffect(() => {
-    entrys();
+    findEntrys();
   }, [isOpenModal]);
 
   return (
@@ -72,18 +90,34 @@ export function EntryPage() {
             <C.Tbody>
               {filtering.map((item, index) => {
                 return (
-                  <C.Tr key={index}>
-                    <C.TdConfig display={true}>{item.id}</C.TdConfig>
-                    <C.TdConfig>{item.supply.nome}</C.TdConfig>
-                    <C.Td>{item.quant}</C.Td>
-                    <C.Td>{item.data.split('T')[0]}</C.Td>
-                  </C.Tr>
+                  <>
+                    <C.Tr
+                      key={index + 2}
+                      onClick={() => {
+                        modalIsOpenEntry(item.id);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <C.TdConfig display={true}>{item.id}</C.TdConfig>
+                      <C.TdConfig>{item.supply.nome}</C.TdConfig>
+                      <C.Td>{item.quant}</C.Td>
+                      <C.Td>{item.data.split('T')[0]}</C.Td>
+                    </C.Tr>
+                  </>
                 );
               })}
             </C.Tbody>
           </C.Table>
         )}
       </PatternSection>
+      <ModalControl
+        closeModal={closeModalEntry}
+        modalIsOpen={isOpenModalEntry}
+        data={entry?.data.split('T')[0]}
+        nome={entry?.supply.nome}
+        quant={entry?.quant}
+        key={entry?.id}
+      />
     </>
   );
 }
