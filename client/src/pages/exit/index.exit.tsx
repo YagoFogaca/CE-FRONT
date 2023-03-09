@@ -4,7 +4,7 @@ import { IControlSupply } from '../../utils/interfaces/index.entry';
 import { PatternSection } from '../../styled-components/pattern-section/index.section';
 import { SectionFilter } from '../../components/section-filter/index.section-filter';
 import { Filtering } from '../../utils/filter/index.filter';
-import { FormCreateEntry } from '../../components/forms/form-create-entry/index.form-create-entry';
+import { FormCreateExit } from '../../components/forms/form-create-exit/index.form-create-exit';
 import { Loading } from '../../components/loading/index.loading';
 import * as C from '../../styled-components/table/index.table';
 
@@ -52,7 +52,7 @@ export function ExitPage() {
           closeModal={closeModal}
           isOpenModal={isOpenModal}
           modalIsOpen={modalIsOpen}
-          children={<FormCreateEntry closeModal={closeModal} />}
+          children={<FormCreateExit closeModal={closeModal} />}
         />
         {loading ? (
           <Loading />

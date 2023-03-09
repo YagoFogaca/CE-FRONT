@@ -44,6 +44,10 @@ export class Api {
   static async findAllExit() {
     return (await axios.get('/exit-supply/find-all')).data;
   }
+
+  static async createExit(exit: ICreateControlSupply) {
+    return (await axios.post('/exit-supply/create', exit)).data;
+  }
 }
 
 // export const api = {
