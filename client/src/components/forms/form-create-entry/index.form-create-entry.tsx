@@ -47,7 +47,7 @@ export function FormCreateEntry({ closeModal }: PropsFormCreate) {
     <>
       <Form onSubmit={createEntry}>
         <Form.Text className={validateProcessCreate ? 'form-textInvalide' : ''}>
-          Ocorreu um erro ao criar o insumo
+          Ocorreu um erro ao criar a entrada do insumo
         </Form.Text>
         <Form.Group className={'mb-3'} controlId="id_supply">
           <Form.Label>Nome insumo</Form.Label>
