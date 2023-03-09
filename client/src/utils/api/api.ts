@@ -40,6 +40,10 @@ export class Api {
       await axios.post('/entry-supply/create', entry)
     ).data;
   }
+
+  static async findAllExit() {
+    return (await axios.get('/exit-supply/find-all')).data;
+  }
 }
 
 // export const api = {
