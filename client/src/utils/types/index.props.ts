@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Api } from '../api/api';
 
 export type PropsLineTable = {
   display?: boolean;
@@ -29,6 +30,8 @@ export type PropsModalControl = {
   nome: string | undefined;
   quant: number | undefined;
   data: string | undefined;
+  deleteControl?: Api;
+  updateControl: Api;
 };
 
 export type PropsSectionFilter = {
@@ -42,4 +45,15 @@ export type PropsSectionFilter = {
 // mudar para generico
 export type PropsFormCreate = {
   closeModal: () => void;
+};
+
+export type LastTwelveMonths = {
+  month: string;
+  amount: number;
+};
+
+export type PropsChartBar = {
+  titleText: string;
+  seriesName: string;
+  data: LastTwelveMonths[];
 };
