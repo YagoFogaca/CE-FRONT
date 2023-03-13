@@ -123,8 +123,8 @@ export function SupplyPage() {
                 <Form.Select
                   defaultValue={supply?.ativo ? 'ATIVO' : 'OBSOLETO'}
                 >
-                  <option value="ATIVO">Ativo</option>
-                  <option value="OBSOLETO">Obsoleto</option>
+                  <option value="ativo">Ativo</option>
+                  <option value="obsoleto">Obsoleto</option>
                 </Form.Select>
               </Form.Group>
               <div className="sectionBtn">
