@@ -72,7 +72,7 @@ export function Header() {
                 </span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="">
                 <TbUser />
                 <span
@@ -81,7 +81,7 @@ export function Header() {
                   Usuarios
                 </span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </aside>
