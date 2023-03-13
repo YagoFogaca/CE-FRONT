@@ -27,7 +27,6 @@ export function ModalControl({
   nome,
   data,
   quant,
-  updateControl,
 }: PropsModalControl) {
   const { suppleis } = useContext(supplyContext);
   const [validateDataExit, setvalidateDataExit] = useState(true);

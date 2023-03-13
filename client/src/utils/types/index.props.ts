@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Api } from '../api/api';
 import { ISupplyContext } from '../interfaces/index.context';
 
 export type PropsLineTable = {
@@ -31,8 +30,6 @@ export type PropsModalControl = {
   nome: string | undefined;
   quant: number | undefined;
   data: string | undefined;
-  deleteControl?: Api;
-  updateControl: Api;
 };
 
 export type PropsSectionFilter = {
