@@ -37,6 +37,5 @@ export function ChartPolar({ data }: PropsChartPolar) {
       type="polarArea"
       width={450}
     />
-    // <h1>Teste</h1>
   );
 }
