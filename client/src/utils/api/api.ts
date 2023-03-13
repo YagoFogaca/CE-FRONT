@@ -59,6 +59,14 @@ export class Api {
   static async createExit(exit: ICreateControlSupply) {
     return (await axios.post('/exit-supply/create', exit)).data;
   }
+
+  static async deleteExit(id?: string) {
+    return (await axios.delete('/exit-supply/delete/' + id)).data;
+  }
+
+  static async updateExit(id?: string, exit?: IUpdateControlSupply) {
+    return (await axios.patch('/exit-supply/update/' + id, exit)).data;
+  }
 }
 
 // export const api = {
