@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Api } from '../api/api';
+import { ISupplyContext } from '../interfaces/index.context';
 
 export type PropsLineTable = {
   display?: boolean;
@@ -52,8 +53,28 @@ export type LastTwelveMonths = {
   amount: number;
 };
 
+export type QuantControl = {
+  name: string;
+  quantControl?: number;
+};
+
 export type PropsChartBar = {
   titleText: string;
   seriesName: string;
   data: LastTwelveMonths[];
+};
+
+export type PropsChartPolar = {
+  data: QuantControl[];
+};
+
+export type UseStateQuantStock = {
+  total: number;
+  active: number;
+  obsolete: number;
+};
+
+export type PropsCountStock = {
+  suppleis: ISupplyContext[];
+  setQuantStock: (data: UseStateQuantStock) => void;
 };

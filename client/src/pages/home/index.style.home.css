@@ -2,12 +2,36 @@
   display: flex;
   flex-direction: column;
   gap: 45px;
+  height: 100%;
+  background-color: #dedede;
 }
 
-.section-chart-polar {
+.section-infos-home {
   width: 100%;
   height: 300px;
-  background-color: rgb(35, 2, 66);
+  border-bottom: 1px solid #afafaf;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infos-stock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.infos-stock span {
+  font-size: 19px;
+}
+
+.card-chart-polar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .section-chart {
@@ -32,6 +56,3 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
-/* .section-chart-colun div {
-} */
