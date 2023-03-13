@@ -5,6 +5,7 @@ import { Form, Button } from 'react-bootstrap/';
 import * as C from '../../../styled-components/section-modal/index.section-modal';
 import { useContext, useState } from 'react';
 import { supplyContext } from '../../../context/supply.context';
+import { Api } from '../../../utils/api/api';
 
 const customStyles = {
   content: {
@@ -21,19 +22,16 @@ const customStyles = {
   },
 };
 
-export function ModalControl({
+export function ModalEntry({
   closeModal,
   modalIsOpen,
-  nome,
   data,
-  quant,
 }: PropsModalControl) {
   const { suppleis } = useContext(supplyContext);
   const [validateDataExit, setvalidateDataExit] = useState(true);
   const [validateQuantSupply, setValidateQuanSupply] = useState(false);
-  const [validateProcessCreate, setValidateProcessCreate] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-
+  const [isLoadingDeleted, setIsLoadingDeleted] = useState(false);
+  const [isLoadingUpdated, setIsLoadingUpdated] = useState(false);
   const handleChangeQuant = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (+e.currentTarget.value <= 0) {
       setValidateQuanSupply(true);
@@ -42,11 +40,30 @@ export function ModalControl({
     }
   };
 
-  const deletedControl = async () => {};
+  const deletedEntry = async () => {
+    try {
+      setIsLoadingDeleted(true);
+      await Api.deleteEntry(data.id);
+      setIsLoadingDeleted(false);
+      closeModal();
+    } catch (error) {
+      setIsLoadingDeleted(false);
+      console.log(error);
+    }
+  };
 
-  const updatedControl = async (e: React.FormEvent<HTMLFormElement>) => {
+  const updatedEntry = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoadingUpdated(true);
+      const entryUpdated = {
+        id_supply: e.currentTarget.id_supply.value,
+        quant: +e.currentTarget.quant.value,
+        data: e.currentTarget.data.value + ':00.843Z',
+      };
+      await Api.updateEntry(data.id, entryUpdated);
+      setIsLoadingUpdated(false);
+      closeModal();
     } catch (error) {
       console.log(error);
     }
@@ -70,16 +87,13 @@ export function ModalControl({
         />
       </C.SectionModal>
       <C.SectionInfosModal>
-        <C.H6SectionInfosModal>Insumo: {nome}</C.H6SectionInfosModal>
-        <C.H6SectionInfosModal>Quantidade: {quant}</C.H6SectionInfosModal>
+        <C.H6SectionInfosModal>Insumo: {data.nome}</C.H6SectionInfosModal>
+        <C.H6SectionInfosModal>Quantidade: {data.quant}</C.H6SectionInfosModal>
         <C.H6SectionInfosModal>
-          Data: {data?.split('T')[0]}
+          Data: {data?.data?.split('T')[0]}
         </C.H6SectionInfosModal>
       </C.SectionInfosModal>
-      <Form onSubmit={updatedControl}>
-        <Form.Text className={validateProcessCreate ? 'form-textInvalide' : ''}>
-          Ocorreu um erro ao criar a saida do insumo
-        </Form.Text>
+      <Form onSubmit={updatedEntry}>
         <Form.Group className={'mb-3'} controlId="id_supply">
           <Form.Label>Nome insumo</Form.Label>
           <Form.Select defaultValue="Choose...">
@@ -102,7 +116,7 @@ export function ModalControl({
             onChange={handleChangeQuant}
           />
           <Form.Text className={validateQuantSupply ? 'form-textInvalide' : ''}>
-            A saida não pode ser menor ou igual a zero
+            A entrada não pode ser menor ou igual a zero
           </Form.Text>
         </Form.Group>
 
@@ -128,17 +142,13 @@ export function ModalControl({
           <Button
             variant="success"
             type="submit"
-            disabled={
-              validateQuantSupply || isLoading || validateDataExit
-                ? true
-                : false
-            }
+            disabled={validateQuantSupply || validateDataExit ? true : false}
           >
-            {isLoading ? 'Criando...' : 'Criar'}
+            {isLoadingUpdated ? 'Atualizando...' : 'Atualizar'}
           </Button>
 
-          <Button variant="danger" type="reset">
-            Limpar
+          <Button variant="danger" type="reset" onClick={deletedEntry}>
+            {isLoadingDeleted ? 'Deletando...' : 'Deletar'}
           </Button>
         </div>
       </Form>

@@ -7,13 +7,13 @@ import { SectionFilter } from '../../components/section-filter/index.section-fil
 import { Loading } from '../../components/loading/index.loading';
 import * as C from '../../styled-components/table/index.table';
 import { FormCreateEntry } from '../../components/forms/form-create-entry/index.form-create-entry';
-import { ModalControl } from '../../components/react-modal/modal-control/index.modal-control';
+import { ModalEntry } from '../../components/react-modal/modal-control/index.modal-entry';
 
 export function EntryPage() {
   const [filterEntry, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [entrys, setEntrys] = useState<IControlSupply[]>([]);
-  // const [entry, setEntry] = useState<IControlSupply | undefined>();
+  const [entry, setEntry] = useState<IControlSupply | undefined>();
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const modalIsOpen = () => {
@@ -24,21 +24,21 @@ export function EntryPage() {
     setIsOpenModal(false);
   };
 
-  // const [isOpenModalEntry, setIsOpenModalEntry] = useState(false);
-  // const modalIsOpenEntry = (id: string) => {
-  //   const entry = entrys
-  //     .filter(item => {
-  //       return item.id === id;
-  //     })
-  //     .find(item => item);
+  const [isOpenModalEntry, setIsOpenModalEntry] = useState(false);
+  const modalIsOpenEntry = (id: string) => {
+    const entry = entrys
+      .filter(item => {
+        return item.id === id;
+      })
+      .find(item => item);
 
-  //   setEntry(entry);
-  //   setIsOpenModalEntry(true);
-  // };
+    setEntry(entry);
+    setIsOpenModalEntry(true);
+  };
 
-  // const closeModalEntry = () => {
-  //   setIsOpenModalEntry(false);
-  // };
+  const closeModalEntry = () => {
+    setIsOpenModalEntry(false);
+  };
 
   const findEntrys = async () => {
     try {
@@ -63,7 +63,7 @@ export function EntryPage() {
 
   useEffect(() => {
     findEntrys();
-  }, [isOpenModal]);
+  }, [isOpenModal, isOpenModalEntry]);
 
   return (
     <>
@@ -94,7 +94,7 @@ export function EntryPage() {
                     <C.Tr
                       key={index + 2}
                       onClick={() => {
-                        // modalIsOpenEntry(item.id);
+                        modalIsOpenEntry(item.id);
                       }}
                       style={{ cursor: 'pointer' }}
                     >
@@ -110,6 +110,16 @@ export function EntryPage() {
           </C.Table>
         )}
       </PatternSection>
+      <ModalEntry
+        closeModal={closeModalEntry}
+        data={{
+          data: entry?.data,
+          nome: entry?.supply.nome,
+          quant: entry?.quant,
+          id: entry?.id,
+        }}
+        modalIsOpen={isOpenModalEntry}
+      />
     </>
   );
 }

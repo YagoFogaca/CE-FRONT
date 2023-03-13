@@ -15,3 +15,9 @@ export interface ICreateControlSupply {
   quant: number;
   data: string;
 }
+
+export interface IUpdateControlSupply {
+  id_supply: string;
+  quant: number;
+  data: string;
+}

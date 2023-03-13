@@ -27,9 +27,12 @@ export type PropsModal = {
 export type PropsModalControl = {
   modalIsOpen: boolean;
   closeModal: () => void;
-  nome: string | undefined;
-  quant: number | undefined;
-  data: string | undefined;
+  data: {
+    nome: string | undefined;
+    quant: number | undefined;
+    data: string | undefined;
+    id: string | undefined;
+  };
 };
 
 export type PropsSectionFilter = {
