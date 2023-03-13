@@ -13,7 +13,7 @@ export function EntryPage() {
   const [filterEntry, setFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [entrys, setEntrys] = useState<IControlSupply[]>([]);
-  const [entry, setEntry] = useState<IControlSupply | undefined>();
+  // const [entry, setEntry] = useState<IControlSupply | undefined>();
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const modalIsOpen = () => {
@@ -24,21 +24,21 @@ export function EntryPage() {
     setIsOpenModal(false);
   };
 
-  const [isOpenModalEntry, setIsOpenModalEntry] = useState(false);
-  const modalIsOpenEntry = (id: string) => {
-    const entry = entrys
-      .filter(item => {
-        return item.id === id;
-      })
-      .find(item => item);
+  // const [isOpenModalEntry, setIsOpenModalEntry] = useState(false);
+  // const modalIsOpenEntry = (id: string) => {
+  //   const entry = entrys
+  //     .filter(item => {
+  //       return item.id === id;
+  //     })
+  //     .find(item => item);
 
-    setEntry(entry);
-    setIsOpenModalEntry(true);
-  };
+  //   setEntry(entry);
+  //   setIsOpenModalEntry(true);
+  // };
 
-  const closeModalEntry = () => {
-    setIsOpenModalEntry(false);
-  };
+  // const closeModalEntry = () => {
+  //   setIsOpenModalEntry(false);
+  // };
 
   const findEntrys = async () => {
     try {
@@ -94,7 +94,7 @@ export function EntryPage() {
                     <C.Tr
                       key={index + 2}
                       onClick={() => {
-                        modalIsOpenEntry(item.id);
+                        // modalIsOpenEntry(item.id);
                       }}
                       style={{ cursor: 'pointer' }}
                     >
@@ -110,14 +110,6 @@ export function EntryPage() {
           </C.Table>
         )}
       </PatternSection>
-      {/* <ModalControl
-        closeModal={closeModalEntry}
-        modalIsOpen={isOpenModalEntry}
-        data={entry?.data.split('T')[0]}
-        nome={entry?.supply.nome}
-        quant={entry?.quant}
-        key={entry?.id}
-      /> */}
     </>
   );
 }
