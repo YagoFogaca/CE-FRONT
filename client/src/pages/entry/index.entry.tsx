@@ -110,14 +110,14 @@ export function EntryPage() {
           </C.Table>
         )}
       </PatternSection>
-      <ModalControl
+      {/* <ModalControl
         closeModal={closeModalEntry}
         modalIsOpen={isOpenModalEntry}
         data={entry?.data.split('T')[0]}
         nome={entry?.supply.nome}
         quant={entry?.quant}
         key={entry?.id}
-      />
+      /> */}
     </>
   );
 }
